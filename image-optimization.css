@@ -1,0 +1,280 @@
+/* 图像优化和兼容性处理 CSS 文件 */
+
+/* 通用图像优化规则 */
+.image-adaptive {
+    position: relative;
+    overflow: hidden;
+    background-color: #f8fafc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-adaptive img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: all 0.3s ease;
+}
+
+/* 不同宽高比的图像适配 */
+
+/* 正方形容器 (1:1) */
+.image-square {
+    aspect-ratio: 1 / 1;
+}
+
+/* 横向矩形容器 (16:9) */
+.image-landscape {
+    aspect-ratio: 16 / 9;
+}
+
+/* 竖向矩形容器 (3:4) */
+.image-portrait {
+    aspect-ratio: 3 / 4;
+}
+
+/* 宽屏容器 (21:9) */
+.image-wide {
+    aspect-ratio: 21 / 9;
+}
+
+/* 图像适配模式 */
+
+/* 完全填充模式 - 图像可能被裁剪但会完全填满容器 */
+.fit-cover img {
+    object-fit: cover;
+}
+
+/* 完整显示模式 - 显示完整图像但可能留有空白 */
+.fit-contain img {
+    object-fit: contain;
+    background-color: #f8fafc;
+}
+
+/* 拉伸模式 - 图像会被拉伸以完全填满容器 */
+.fit-fill img {
+    object-fit: fill;
+}
+
+/* 原始尺寸模式 - 保持图像原始大小 */
+.fit-none img {
+    object-fit: none;
+}
+
+/* 缩放模式 - 等比缩放到合适大小 */
+.fit-scale img {
+    object-fit: scale-down;
+}
+
+/* 图像位置调整 */
+
+/* 居中显示 */
+.pos-center img {
+    object-position: center;
+}
+
+/* 顶部对齐 - 适用于人像照片 */
+.pos-top img {
+    object-position: center top;
+}
+
+/* 底部对齐 */
+.pos-bottom img {
+    object-position: center bottom;
+}
+
+/* 左对齐 */
+.pos-left img {
+    object-position: left center;
+}
+
+/* 右对齐 */
+.pos-right img {
+    object-position: right center;
+}
+
+/* 图像加载状态处理 */
+
+/* 加载中的占位样式 */
+.image-loading {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* 加载失败的占位样式 */
+.image-error {
+    background-color: #fee2e2;
+    color: #dc2626;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875rem;
+    text-align: center;
+}
+
+.image-error::before {
+    content: "📷";
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* 悬停效果增强 */
+.image-hover-zoom:hover img {
+    transform: scale(1.05);
+}
+
+.image-hover-brightness:hover img {
+    filter: brightness(1.1);
+}
+
+.image-hover-blur:hover img {
+    filter: blur(2px);
+}
+
+.image-hover-grayscale:hover img {
+    filter: grayscale(100%);
+}
+
+/* 图像滤镜效果 */
+.filter-grayscale img {
+    filter: grayscale(100%);
+}
+
+.filter-sepia img {
+    filter: sepia(100%);
+}
+
+.filter-brightness img {
+    filter: brightness(1.2);
+}
+
+.filter-contrast img {
+    filter: contrast(1.2);
+}
+
+.filter-blur img {
+    filter: blur(1px);
+}
+
+/* 响应式图像尺寸 */
+@media screen and (max-width: 1200px) {
+    .image-adaptive {
+        min-height: 200px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .image-adaptive {
+        min-height: 150px;
+    }
+    
+    /* 移动端调整宽高比 */
+    .image-landscape {
+        aspect-ratio: 4 / 3;
+    }
+    
+    .image-wide {
+        aspect-ratio: 16 / 9;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .image-adaptive {
+        min-height: 120px;
+    }
+    
+    /* 小屏幕进一步调整 */
+    .image-landscape,
+    .image-wide {
+        aspect-ratio: 3 / 2;
+    }
+}
+
+/* 图像懒加载支持 */
+.image-lazy {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-lazy.loaded {
+    opacity: 1;
+}
+
+/* 图像边框和阴影效果 */
+.image-border img {
+    border: 2px solid #e2e8f0;
+}
+
+.image-shadow img {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.image-shadow-lg img {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* 圆角效果 */
+.image-rounded img {
+    border-radius: 8px;
+}
+
+.image-rounded-lg img {
+    border-radius: 12px;
+}
+
+.image-circle img {
+    border-radius: 50%;
+}
+
+/* 图像叠加效果 */
+.image-overlay {
+    position: relative;
+}
+
+.image-overlay::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-overlay:hover::after {
+    opacity: 1;
+}
+
+/* 图像网格布局优化 */
+.image-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.image-grid-2 {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.image-grid-3 {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+@media screen and (max-width: 768px) {
+    .image-grid,
+    .image-grid-2,
+    .image-grid-3 {
+        grid-template-columns: 1fr;
+    }
+}
