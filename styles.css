@@ -406,7 +406,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover; /* 保持宽高比并填满容器 */
-    object-position: center top; /* 人像照片显示上半部分 */
+    object-position: center; /* 居中显示，避免遮挡重要部分 */
     transition: transform 0.3s ease;
     display: block;
 }
@@ -420,7 +420,7 @@ body {
     width: 100%;
     height: 280px;
     object-fit: cover;
-    object-position: center top;
+    object-position: center; /* 居中显示 */
     transition: transform 0.3s ease;
     display: block;
 }
@@ -485,6 +485,28 @@ body {
     min-height: 450px; /* 确保所有卡片高度一致 */
 }
 
+/* 成员照片显示模式选项 */
+.member-card.fit-contain img {
+    object-fit: contain; /* 显示完整图像，可能有空白 */
+    background-color: #f8fafc;
+}
+
+.member-card.fit-cover img {
+    object-fit: cover; /* 填满容器，可能裁剪 */
+}
+
+.member-card.pos-top img {
+    object-position: center top; /* 顶部对齐 */
+}
+
+.member-card.pos-center img {
+    object-position: center; /* 居中对齐 */
+}
+
+.member-card.pos-bottom img {
+    object-position: center bottom; /* 底部对齐 */
+}
+
 /* 成员照片加载优化 */
 .member-card img {
     background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
@@ -505,6 +527,22 @@ body {
     transform: translate(-50%, -50%);
     font-size: 3rem;
     color: #a0aec0;
+}
+
+/* 特殊的全身照显示模式 */
+.member-card.full-body {
+    height: auto;
+    min-height: 500px;
+}
+
+.member-card.full-body .member-image,
+.member-card.full-body > img {
+    height: 400px; /* 更高的容器以显示全身 */
+}
+
+.member-card.full-body img {
+    object-fit: contain; /* 显示完整图像 */
+    object-position: center;
 }
 
 /* 研究页面样式 */
