@@ -286,8 +286,26 @@ document.addEventListener('DOMContentLoaded', function() {
                     this.parentNode.insertBefore(placeholder, this);
                 };
                 
-                // 图像加载成功后的处理
+                // 图像加载成功后的智能处理
                 img.onload = function() {
+                    const aspectRatio = this.naturalWidth / this.naturalHeight;
+                    
+                    // 根据图像宽高比智能选择显示模式
+                    if (aspectRatio < 0.75) {
+                        // 竖长图像（全身照等）- 使用contain模式显示完整图像
+                        card.classList.add('fit-contain');
+                        console.log('检测到竖长图像，使用完整显示模式');
+                    } else if (aspectRatio > 1.5) {
+                        // 横长图像 - 使用cover模式并居中
+                        card.classList.add('fit-cover', 'pos-center');
+                        console.log('检测到横长图像，使用填充模式');
+                    } else {
+                        // 正常比例图像 - 使用cover模式并居中
+                        card.classList.add('fit-cover', 'pos-center');
+                        console.log('检测到正常比例图像，使用填充居中模式');
+                    }
+                    
+                    // 平滑显示
                     this.style.opacity = '0';
                     this.style.transition = 'opacity 0.3s ease';
                     setTimeout(() => {
@@ -302,6 +320,43 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // 手动调整成员图像显示模式的函数
+    function adjustMemberImageDisplay(cardIndex, mode) {
+        const memberCards = document.querySelectorAll('.member-card');
+        if (cardIndex >= 0 && cardIndex < memberCards.length) {
+            const card = memberCards[cardIndex];
+            
+            // 清除现有的显示模式类
+            card.classList.remove('fit-contain', 'fit-cover', 'pos-top', 'pos-center', 'pos-bottom', 'full-body');
+            
+            // 应用新的显示模式
+            switch(mode) {
+                case 'contain':
+                    card.classList.add('fit-contain');
+                    break;
+                case 'cover-top':
+                    card.classList.add('fit-cover', 'pos-top');
+                    break;
+                case 'cover-center':
+                    card.classList.add('fit-cover', 'pos-center');
+                    break;
+                case 'cover-bottom':
+                    card.classList.add('fit-cover', 'pos-bottom');
+                    break;
+                case 'full-body':
+                    card.classList.add('full-body');
+                    break;
+                default:
+                    card.classList.add('fit-cover', 'pos-center');
+            }
+            
+            console.log(`成员卡片 ${cardIndex} 显示模式已调整为: ${mode}`);
+        }
+    }
+
+    // 在控制台提供调整函数供开发者使用
+    window.adjustMemberImage = adjustMemberImageDisplay;
 
     // 成员卡片高度均衡处理
     function balanceMemberCardHeights() {
