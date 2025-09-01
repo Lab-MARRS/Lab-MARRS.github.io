@@ -123,16 +123,29 @@ body {
     margin-bottom: 4rem;
 }
 
-.lab-image img {
+.lab-image {
     width: 100%;
-    height: auto;
+    height: 400px; /* 固定高度确保一致性 */
+    overflow: hidden;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
 
-.lab-image img:hover {
+.lab-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 保持宽高比并填满容器 */
+    object-position: center; /* 居中显示图像的重要部分 */
+    transition: transform 0.3s ease;
+}
+
+.lab-image:hover {
     transform: translateY(-5px);
+}
+
+.lab-image:hover img {
+    transform: scale(1.05); /* 悬停时轻微放大 */
 }
 
 .lab-text h1 {
@@ -183,7 +196,13 @@ body {
 .news-item img {
     width: 100%;
     height: 200px;
-    object-fit: cover;
+    object-fit: cover; /* 保持宽高比并填满容器 */
+    object-position: center; /* 居中显示 */
+    transition: transform 0.3s ease;
+}
+
+.news-item:hover img {
+    transform: scale(1.05); /* 悬停时轻微放大 */
 }
 
 .news-content {
@@ -235,8 +254,14 @@ body {
 .news-item-full img {
     width: 100%;
     height: 200px;
-    object-fit: cover;
+    object-fit: cover; /* 保持宽高比并填满容器 */
+    object-position: center; /* 居中显示 */
     border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.news-item-full:hover img {
+    transform: scale(1.03); /* 悬停时轻微放大 */
 }
 
 .news-item-full .news-content h2 {
@@ -263,11 +288,24 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.leader-image img {
+.leader-image {
     width: 100%;
-    height: auto;
+    height: 500px; /* 固定高度 */
+    overflow: hidden;
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.leader-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 保持宽高比并填满容器 */
+    object-position: center top; /* 人像照片通常显示上半部分 */
+    transition: transform 0.3s ease;
+}
+
+.leader-image:hover img {
+    transform: scale(1.03); /* 悬停时轻微放大 */
 }
 
 .leader-info h2 {
@@ -356,7 +394,13 @@ body {
 .member-card img {
     width: 100%;
     height: 250px;
-    object-fit: cover;
+    object-fit: cover; /* 保持宽高比并填满容器 */
+    object-position: center top; /* 人像照片显示上半部分 */
+    transition: transform 0.3s ease;
+}
+
+.member-card:hover img {
+    transform: scale(1.05); /* 悬停时轻微放大 */
 }
 
 .member-info {
@@ -424,8 +468,14 @@ body {
 .research-item img {
     width: 100%;
     height: 250px;
-    object-fit: cover;
+    object-fit: cover; /* 保持宽高比并填满容器 */
+    object-position: center; /* 居中显示 */
     border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.research-item:hover img {
+    transform: scale(1.03); /* 悬停时轻微放大 */
 }
 
 .research-content h2 {
@@ -481,8 +531,14 @@ body {
 .project-item img {
     width: 100%;
     height: 250px;
-    object-fit: cover;
+    object-fit: cover; /* 保持宽高比并填满容器 */
+    object-position: center; /* 居中显示 */
     border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.project-item:hover img {
+    transform: scale(1.03); /* 悬停时轻微放大 */
 }
 
 .project-content h2 {
@@ -684,6 +740,82 @@ body {
 
 .page.active {
     animation: fadeIn 0.5s ease-in-out;
+}
+
+/* 图像通用优化规则 */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 图像加载优化 */
+img[src*="placeholder"] {
+    background-color: #f7fafc;
+    background-image: linear-gradient(45deg, #e2e8f0 25%, transparent 25%), 
+                      linear-gradient(-45deg, #e2e8f0 25%, transparent 25%), 
+                      linear-gradient(45deg, transparent 75%, #e2e8f0 75%), 
+                      linear-gradient(-45deg, transparent 75%, #e2e8f0 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    min-height: 150px;
+}
+
+/* 图像容器通用样式 */
+.image-container {
+    position: relative;
+    overflow: hidden;
+    background-color: #f8fafc;
+}
+
+.image-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, #f1f5f9 25%, transparent 25%), 
+                linear-gradient(-45deg, #f1f5f9 25%, transparent 25%);
+    background-size: 10px 10px;
+    opacity: 0.1;
+    z-index: 1;
+}
+
+.image-container img {
+    position: relative;
+    z-index: 2;
+}
+
+/* 响应式图像处理 */
+@media screen and (max-width: 768px) {
+    .lab-image {
+        height: 250px; /* 移动端降低高度 */
+    }
+    
+    .leader-image {
+        height: 300px; /* 移动端调整高度 */
+    }
+    
+    .member-card img {
+        height: 200px; /* 移动端调整成员照片高度 */
+    }
+    
+    .research-item img,
+    .project-item img {
+        height: 180px; /* 移动端调整项目图片高度 */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .lab-image {
+        height: 200px; /* 小屏幕进一步降低高度 */
+    }
+    
+    .news-item img,
+    .news-item-full img {
+        height: 150px; /* 小屏幕调整新闻图片高度 */
+    }
 }
 
 /* 自定义滚动条 */
