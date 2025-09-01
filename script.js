@@ -260,6 +260,86 @@ document.addEventListener('DOMContentLoaded', function() {
         handleSwipe();
     });
 
+    // 成员页面图像优化处理
+    function optimizeMemberImages() {
+        const memberCards = document.querySelectorAll('.member-card');
+        
+        memberCards.forEach(card => {
+            const img = card.querySelector('img');
+            if (img) {
+                // 图像加载错误处理
+                img.onerror = function() {
+                    this.style.display = 'none';
+                    const placeholder = document.createElement('div');
+                    placeholder.className = 'member-placeholder';
+                    placeholder.innerHTML = `
+                        <div style="
+                            height: 280px;
+                            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 4rem;
+                            color: #a0aec0;
+                        ">👤</div>
+                    `;
+                    this.parentNode.insertBefore(placeholder, this);
+                };
+                
+                // 图像加载成功后的处理
+                img.onload = function() {
+                    this.style.opacity = '0';
+                    this.style.transition = 'opacity 0.3s ease';
+                    setTimeout(() => {
+                        this.style.opacity = '1';
+                    }, 100);
+                };
+                
+                // 确保图像正确显示
+                if (img.complete && img.naturalHeight !== 0) {
+                    img.onload();
+                }
+            }
+        });
+    }
+
+    // 成员卡片高度均衡处理
+    function balanceMemberCardHeights() {
+        const memberCards = document.querySelectorAll('.member-card');
+        let maxHeight = 0;
+        
+        // 重置高度
+        memberCards.forEach(card => {
+            card.style.height = 'auto';
+        });
+        
+        // 计算最大高度
+        memberCards.forEach(card => {
+            const height = card.offsetHeight;
+            if (height > maxHeight) {
+                maxHeight = height;
+            }
+        });
+        
+        // 应用统一高度（仅在桌面端）
+        if (window.innerWidth > 768) {
+            memberCards.forEach(card => {
+                card.style.height = maxHeight + 'px';
+            });
+        }
+    }
+
+    // 初始化成员页面优化
+    setTimeout(() => {
+        optimizeMemberImages();
+        balanceMemberCardHeights();
+    }, 500);
+
+    // 窗口大小改变时重新平衡高度
+    window.addEventListener('resize', debounce(() => {
+        balanceMemberCardHeights();
+    }, 300));
+
     // 控制台输出欢迎信息（开发者彩蛋）
     console.log('%c欢迎访问我们的研究实验室网站！', 'color: #667eea; font-size: 16px; font-weight: bold;');
     console.log('%c如果您对我们的研究感兴趣，欢迎联系我们！', 'color: #4a5568; font-size: 14px;');
