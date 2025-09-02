@@ -395,61 +395,58 @@ document.addEventListener('DOMContentLoaded', function() {
         balanceMemberCardHeights();
     }, 300));
 
-    // 图像清晰度优化处理
-    function optimizeImageClarity() {
+    // 强制图像清晰度优化 - 简化但更有效的方法
+    function forceImageClarity() {
         const allImages = document.querySelectorAll('img');
         
-        allImages.forEach(img => {
-            // 检查图像是否已加载
-            if (img.complete && img.naturalHeight !== 0) {
-                applyImageOptimizations(img);
-            } else {
-                img.onload = function() {
-                    applyImageOptimizations(this);
-                };
+        allImages.forEach((img, index) => {
+            // 强制应用关键的清晰度设置
+            img.style.imageRendering = '-webkit-optimize-contrast';
+            img.style.imageRendering = 'crisp-edges';
+            img.style.msInterpolationMode = 'bicubic';
+            img.style.transform = 'translateZ(0)';
+            img.style.webkitTransform = 'translateZ(0)';
+            img.style.willChange = 'transform';
+            img.style.webkitBackfaceVisibility = 'hidden';
+            img.style.backfaceVisibility = 'hidden';
+            
+            // 添加强制清晰类
+            img.classList.add('force-crisp');
+            
+            // 检查是否在问题页面
+            const parentCard = img.closest('.news-item, .research-item, .project-item, .leader-profile, .lab-intro');
+            if (parentCard) {
+                // 对这些页面应用更强的优化
+                img.style.imageRendering = '-webkit-optimize-contrast !important';
+                console.log(`图像 ${index + 1} 清晰度已强制优化`);
             }
         });
     }
 
-    // 应用图像优化设置
-    function applyImageOptimizations(img) {
-        // 添加清晰度增强类
-        img.classList.add('image-crisp');
+    // 检测并修复模糊图像
+    function fixBlurryImages() {
+        const problematicSelectors = [
+            '.news-item img',
+            '.research-item img', 
+            '.project-item img',
+            '.leader-image img',
+            '.lab-image img'
+        ];
         
-        // 检测设备像素比
-        const pixelRatio = window.devicePixelRatio || 1;
+        problematicSelectors.forEach(selector => {
+            const images = document.querySelectorAll(selector);
+            images.forEach(img => {
+                // 强制重置图像渲染
+                img.style.imageRendering = 'auto';
+                setTimeout(() => {
+                    img.style.imageRendering = '-webkit-optimize-contrast';
+                    img.style.imageRendering = 'crisp-edges';
+                    img.style.transform = 'translateZ(0)';
+                }, 10);
+            });
+        });
         
-        // 高DPI屏幕特殊优化
-        if (pixelRatio > 1) {
-            img.style.imageRendering = '-webkit-optimize-contrast';
-            img.style.imageRendering = 'optimizeQuality';
-            img.style.webkitFontSmoothing = 'antialiased';
-            
-            console.log(`高DPI屏幕检测到，像素比: ${pixelRatio}，已应用清晰度优化`);
-        }
-        
-        // 防止图像在变换时模糊
-        img.style.webkitBackfaceVisibility = 'hidden';
-        img.style.backfaceVisibility = 'hidden';
-        img.style.webkitTransform = 'translateZ(0)';
-        img.style.transform = 'translateZ(0)';
-        
-        // 为不同栏目的图像应用特定优化
-        const parentCard = img.closest('.news-item, .research-item, .project-item, .member-card, .leader-profile');
-        if (parentCard) {
-            img.style.willChange = 'transform';
-            
-            // 根据容器类型应用不同的优化
-            if (parentCard.classList.contains('member-card')) {
-                console.log('成员页面图像清晰度已优化');
-            } else if (parentCard.classList.contains('news-item')) {
-                console.log('新闻页面图像清晰度已优化');
-            } else if (parentCard.classList.contains('research-item')) {
-                console.log('研究页面图像清晰度已优化');
-            } else if (parentCard.classList.contains('project-item')) {
-                console.log('项目页面图像清晰度已优化');
-            }
-        }
+        console.log('所有问题图像已重新优化');
     }
 
     // 图像质量检测和警告
@@ -498,19 +495,37 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // 初始化图像优化
+    // 初始化图像优化 - 使用更直接的方法
     setTimeout(() => {
-        optimizeImageClarity();
+        forceImageClarity();
+        fixBlurryImages();
         checkImageQuality();
-        monitorImageQuality();
-    }, 1000);
+    }, 500);
+    
+    // 页面完全加载后再次优化
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            forceImageClarity();
+            fixBlurryImages();
+        }, 1000);
+    });
 
     // 页面可见性变化时重新优化
     document.addEventListener('visibilitychange', function() {
         if (!document.hidden) {
-            setTimeout(optimizeImageClarity, 100);
+            setTimeout(() => {
+                forceImageClarity();
+                fixBlurryImages();
+            }, 100);
         }
     });
+    
+    // 提供手动修复功能
+    window.fixImageClarity = function() {
+        forceImageClarity();
+        fixBlurryImages();
+        console.log('手动图像清晰度修复已完成');
+    };
 
     // 控制台输出欢迎信息（开发者彩蛋）
     console.log('%c欢迎访问我们的研究实验室网站！', 'color: #667eea; font-size: 16px; font-weight: bold;');
