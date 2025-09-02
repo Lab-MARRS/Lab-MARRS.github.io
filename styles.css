@@ -138,6 +138,11 @@ body {
     object-fit: cover; /* 保持宽高比并填满容器 */
     object-position: center; /* 居中显示图像的重要部分 */
     transition: transform 0.3s ease;
+    /* 实验室图像清晰度优化 */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: optimizeQuality;
+    -webkit-font-smoothing: antialiased;
+    will-change: transform;
 }
 
 .lab-image:hover {
@@ -146,6 +151,8 @@ body {
 
 .lab-image:hover img {
     transform: scale(1.05); /* 悬停时轻微放大 */
+    /* 悬停时保持清晰度 */
+    image-rendering: optimizeQuality;
 }
 
 .lab-text h1 {
@@ -199,10 +206,19 @@ body {
     object-fit: cover; /* 保持宽高比并填满容器 */
     object-position: center; /* 居中显示 */
     transition: transform 0.3s ease;
+    /* 新闻图像清晰度优化 */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: optimizeQuality;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    will-change: transform;
 }
 
 .news-item:hover img {
     transform: scale(1.05); /* 悬停时轻微放大 */
+    /* 悬停时保持清晰度 */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: optimizeQuality;
 }
 
 .news-content {
@@ -258,10 +274,17 @@ body {
     object-position: center; /* 居中显示 */
     border-radius: 8px;
     transition: transform 0.3s ease;
+    /* 新闻详细页图像清晰度优化 */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: optimizeQuality;
+    -webkit-font-smoothing: antialiased;
+    will-change: transform;
 }
 
 .news-item-full:hover img {
     transform: scale(1.03); /* 悬停时轻微放大 */
+    /* 悬停时保持清晰度 */
+    image-rendering: optimizeQuality;
 }
 
 .news-item-full .news-content h2 {
@@ -302,10 +325,17 @@ body {
     object-fit: cover; /* 保持宽高比并填满容器 */
     object-position: center top; /* 人像照片通常显示上半部分 */
     transition: transform 0.3s ease;
+    /* 领导照片清晰度优化 */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: optimizeQuality;
+    -webkit-font-smoothing: antialiased;
+    will-change: transform;
 }
 
 .leader-image:hover img {
     transform: scale(1.03); /* 悬停时轻微放大 */
+    /* 悬停时保持清晰度 */
+    image-rendering: optimizeQuality;
 }
 
 .leader-info h2 {
@@ -575,10 +605,17 @@ body {
     object-position: center; /* 居中显示 */
     border-radius: 8px;
     transition: transform 0.3s ease;
+    /* 研究图像清晰度优化 */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: optimizeQuality;
+    -webkit-font-smoothing: antialiased;
+    will-change: transform;
 }
 
 .research-item:hover img {
     transform: scale(1.03); /* 悬停时轻微放大 */
+    /* 悬停时保持清晰度 */
+    image-rendering: optimizeQuality;
 }
 
 .research-content h2 {
@@ -638,10 +675,17 @@ body {
     object-position: center; /* 居中显示 */
     border-radius: 8px;
     transition: transform 0.3s ease;
+    /* 项目图像清晰度优化 */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: optimizeQuality;
+    -webkit-font-smoothing: antialiased;
+    will-change: transform;
 }
 
 .project-item:hover img {
     transform: scale(1.03); /* 悬停时轻微放大 */
+    /* 悬停时保持清晰度 */
+    image-rendering: optimizeQuality;
 }
 
 .project-content h2 {
@@ -864,6 +908,25 @@ img {
     max-width: 100%;
     height: auto;
     display: block;
+    /* 图像清晰度优化 */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: optimizeQuality;
+    /* 防止图像模糊 */
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+    backface-visibility: hidden;
+    /* 硬件加速 */
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    /* 平滑缩放 */
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
 }
 
 /* 图像加载优化 */
@@ -902,6 +965,40 @@ img[src*="placeholder"] {
 .image-container img {
     position: relative;
     z-index: 2;
+}
+
+/* 图像清晰度增强类 */
+.image-crisp {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: -webkit-crisp-edges;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: optimizeQuality;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    will-change: transform;
+}
+
+/* 高DPI屏幕优化 */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    img {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: optimizeQuality;
+        -webkit-font-smoothing: antialiased;
+    }
+}
+
+/* 防止图像在缩放时模糊 */
+img[src] {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-perspective: 1000;
+    perspective: 1000;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 /* 响应式图像处理 */
