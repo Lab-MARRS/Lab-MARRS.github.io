@@ -202,16 +202,17 @@ body {
 
 .news-item img {
     width: 100%;
-    height: 200px;
+    height: 250px; /* 统一高度，减少缩放 */
     object-fit: cover; /* 保持宽高比并填满容器 */
     object-position: center; /* 居中显示 */
     transition: transform 0.3s ease;
-    /* 新闻图像清晰度优化 */
+    /* 关键清晰度设置 */
+    image-rendering: auto;
     image-rendering: -webkit-optimize-contrast;
-    image-rendering: optimizeQuality;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    will-change: transform;
+    -ms-interpolation-mode: bicubic;
+    /* 防止缩放模糊 */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
 }
 
 .news-item:hover img {
@@ -269,16 +270,17 @@ body {
 
 .news-item-full img {
     width: 100%;
-    height: 200px;
+    height: 250px; /* 统一高度 */
     object-fit: cover; /* 保持宽高比并填满容器 */
     object-position: center; /* 居中显示 */
     border-radius: 8px;
     transition: transform 0.3s ease;
-    /* 新闻详细页图像清晰度优化 */
+    /* 关键清晰度设置 */
+    image-rendering: auto;
     image-rendering: -webkit-optimize-contrast;
-    image-rendering: optimizeQuality;
-    -webkit-font-smoothing: antialiased;
-    will-change: transform;
+    -ms-interpolation-mode: bicubic;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
 }
 
 .news-item-full:hover img {
@@ -600,22 +602,20 @@ body {
 
 .research-item img {
     width: 100%;
-    height: 250px;
+    height: 280px; /* 与member页面接近的高度 */
     object-fit: cover; /* 保持宽高比并填满容器 */
     object-position: center; /* 居中显示 */
     border-radius: 8px;
     transition: transform 0.3s ease;
-    /* 研究图像清晰度优化 */
+    /* 简化但有效的清晰度设置 */
+    image-rendering: auto;
     image-rendering: -webkit-optimize-contrast;
-    image-rendering: optimizeQuality;
-    -webkit-font-smoothing: antialiased;
-    will-change: transform;
+    -ms-interpolation-mode: bicubic;
+    transform: translateZ(0);
 }
 
 .research-item:hover img {
-    transform: scale(1.03); /* 悬停时轻微放大 */
-    /* 悬停时保持清晰度 */
-    image-rendering: optimizeQuality;
+    transform: scale(1.03) translateZ(0); /* 悬停时保持硬件加速 */
 }
 
 .research-content h2 {
@@ -670,22 +670,20 @@ body {
 
 .project-item img {
     width: 100%;
-    height: 250px;
+    height: 280px; /* 与member页面接近的高度 */
     object-fit: cover; /* 保持宽高比并填满容器 */
     object-position: center; /* 居中显示 */
     border-radius: 8px;
     transition: transform 0.3s ease;
-    /* 项目图像清晰度优化 */
+    /* 简化但有效的清晰度设置 */
+    image-rendering: auto;
     image-rendering: -webkit-optimize-contrast;
-    image-rendering: optimizeQuality;
-    -webkit-font-smoothing: antialiased;
-    will-change: transform;
+    -ms-interpolation-mode: bicubic;
+    transform: translateZ(0);
 }
 
 .project-item:hover img {
-    transform: scale(1.03); /* 悬停时轻微放大 */
-    /* 悬停时保持清晰度 */
-    image-rendering: optimizeQuality;
+    transform: scale(1.03) translateZ(0); /* 悬停时保持硬件加速 */
 }
 
 .project-content h2 {
@@ -908,25 +906,19 @@ img {
     max-width: 100%;
     height: auto;
     display: block;
-    /* 图像清晰度优化 */
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: -moz-crisp-edges;
+    /* 关键：防止图像缩放模糊 */
+    image-rendering: auto;
     image-rendering: crisp-edges;
-    image-rendering: pixelated;
-    image-rendering: optimizeQuality;
-    /* 防止图像模糊 */
-    -webkit-backface-visibility: hidden;
-    -moz-backface-visibility: hidden;
-    -ms-backface-visibility: hidden;
-    backface-visibility: hidden;
-    /* 硬件加速 */
-    -webkit-transform: translateZ(0);
-    -moz-transform: translateZ(0);
-    -ms-transform: translateZ(0);
+    image-rendering: -webkit-optimize-contrast;
+    /* 在所有浏览器中保持清晰 */
+    -ms-interpolation-mode: bicubic;
+    /* 防止模糊的关键设置 */
     transform: translateZ(0);
-    /* 平滑缩放 */
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
+    -webkit-transform: translateZ(0);
+    will-change: auto;
+    /* 防止字体平滑影响图像 */
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
 }
 
 /* 图像加载优化 */
@@ -965,6 +957,33 @@ img[src*="placeholder"] {
 .image-container img {
     position: relative;
     z-index: 2;
+}
+
+/* 强制图像清晰度类 - 关键修复 */
+.force-crisp,
+.news-item img,
+.research-item img,
+.project-item img,
+.leader-image img,
+.lab-image img {
+    /* 最重要：防止浏览器自动模糊处理 */
+    image-rendering: -webkit-optimize-contrast !important;
+    image-rendering: -moz-crisp-edges !important;
+    image-rendering: crisp-edges !important;
+    image-rendering: pixelated !important;
+    /* IE支持 */
+    -ms-interpolation-mode: bicubic !important;
+    /* 防止缩放模糊 */
+    transform: translateZ(0) !important;
+    -webkit-transform: translateZ(0) !important;
+    /* 禁用字体平滑对图像的影响 */
+    -webkit-font-smoothing: subpixel-antialiased !important;
+    -moz-osx-font-smoothing: auto !important;
+    /* 强制硬件加速 */
+    will-change: transform !important;
+    /* 防止背面模糊 */
+    -webkit-backface-visibility: hidden !important;
+    backface-visibility: hidden !important;
 }
 
 /* 图像清晰度增强类 */
