@@ -247,7 +247,7 @@ body {
 
 /* 新闻页面样式 */
 .news-list {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
@@ -270,7 +270,7 @@ body {
 
 .news-item-full img {
     width: 100%;
-    height: 250px; /* 统一高度 */
+    height: 280px; /* 统一高度 */
     object-fit: cover; /* 保持宽高比并填满容器 */
     object-position: center; /* 居中显示 */
     border-radius: 8px;
@@ -1069,4 +1069,5 @@ img[src] {
 ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
 }
+
 
