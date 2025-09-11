@@ -253,7 +253,7 @@ body {
 
 .news-item-full {
     display: grid;
-    grid-template-columns: 300px 1fr;
+    grid-template-columns: 400px 1fr;
     gap: 2rem;
     background: white;
     border-radius: 12px;
@@ -1069,3 +1069,4 @@ img[src] {
 ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
 }
+
