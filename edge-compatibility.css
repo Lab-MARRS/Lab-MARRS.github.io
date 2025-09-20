@@ -1,0 +1,188 @@
+/* Microsoft Edge 兼容性修复 CSS */
+
+/* Edge 特定的浏览器检测 */
+@supports (-ms-ime-align: auto) {
+    /* 这个规则只在Edge中生效 */
+    
+    /* 修复研究页面的grid布局问题 */
+    .research-item {
+        display: -ms-grid !important;
+        -ms-grid-columns: 400px 1fr !important;
+        -ms-grid-rows: auto !important;
+    }
+    
+    .research-item img {
+        -ms-grid-column: 1 !important;
+        -ms-grid-row: 1 !important;
+    }
+    
+    .research-content {
+        -ms-grid-column: 2 !important;
+        -ms-grid-row: 1 !important;
+    }
+    
+    .research-publications {
+        -ms-grid-column: 1 !important;
+        -ms-grid-column-span: 2 !important;
+        -ms-grid-row: 2 !important;
+    }
+    
+    /* 修复轮播图透明度动画 */
+    .carousel-slide {
+        -ms-filter: "alpha(opacity=0)" !important;
+        filter: alpha(opacity=0) !important;
+    }
+    
+    .carousel-slide.active {
+        -ms-filter: "alpha(opacity=100)" !important;
+        filter: alpha(opacity=100) !important;
+    }
+    
+    /* 修复transition动画 */
+    .research-publications {
+        -ms-transition: max-height 0.5s ease, opacity 0.3s ease !important;
+    }
+    
+    .carousel-slide {
+        -ms-transition: opacity 0.5s ease-in-out !important;
+    }
+    
+    /* 修复flex布局问题 */
+    .research-header {
+        display: -ms-flexbox !important;
+        -ms-flex-pack: justify !important;
+        -ms-flex-align: center !important;
+    }
+    
+    .nav-menu {
+        display: -ms-flexbox !important;
+        -ms-flex-direction: row !important;
+    }
+    
+    .contact-links {
+        display: -ms-grid !important;
+        -ms-grid-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+    }
+    
+    /* 修复transform问题 */
+    .expand-btn i {
+        -ms-transform: rotate(0deg) !important;
+        -webkit-transform: rotate(0deg) !important;
+        transform: rotate(0deg) !important;
+    }
+    
+    .research-item.expanded .expand-btn i {
+        -ms-transform: rotate(180deg) !important;
+        -webkit-transform: rotate(180deg) !important;
+        transform: rotate(180deg) !important;
+    }
+}
+
+/* Edge Legacy (EdgeHTML) 特定修复 */
+@supports (-ms-accelerator: true) {
+    /* EdgeHTML引擎特定修复 */
+    
+    .research-publications {
+        /* 使用height而不是max-height来避免动画问题 */
+        height: 0 !important;
+        max-height: none !important;
+    }
+    
+    .research-item.expanded .research-publications {
+        height: auto !important;
+        max-height: none !important;
+    }
+    
+    /* 强制使用基本的opacity动画 */
+    .carousel-slide {
+        transition: opacity 0.5s linear !important;
+    }
+}
+
+/* Edge Chromium 版本的额外修复 */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    /* 高对比度模式或IE11/Edge Legacy */
+    
+    .research-item {
+        display: block !important;
+        width: 100% !important;
+    }
+    
+    .research-item img {
+        width: 400px !important;
+        float: left !important;
+        margin-right: 2rem !important;
+    }
+    
+    .research-content {
+        overflow: hidden !important;
+    }
+    
+    .research-publications {
+        clear: both !important;
+        width: 100% !important;
+    }
+}
+
+/* 通用Edge兼容性增强 */
+.edge-fallback {
+    /* 为JavaScript检测到的Edge浏览器添加的类 */
+}
+
+.edge-fallback .research-item {
+    display: block !important;
+}
+
+.edge-fallback .research-item img {
+    width: 400px !important;
+    float: left !important;
+    margin-right: 2rem !important;
+}
+
+.edge-fallback .research-content {
+    overflow: hidden !important;
+}
+
+.edge-fallback .research-publications {
+    clear: both !important;
+    width: 100% !important;
+    transition: height 0.5s ease, opacity 0.3s ease !important;
+}
+
+.edge-fallback .research-item.expanded .research-publications {
+    height: auto !important;
+}
+
+/* 移动端Edge兼容性 */
+@media screen and (max-width: 768px) {
+    .edge-fallback .research-item img {
+        width: 100% !important;
+        float: none !important;
+        margin-right: 0 !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .edge-fallback .research-content {
+        overflow: visible !important;
+    }
+}
+
+/* 调试信息 - 仅在开发模式下显示 */
+.edge-debug::before {
+    content: "Edge兼容模式已启用";
+    position: fixed;
+    top: 80px;
+    right: 10px;
+    background: #ff6b6b;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    z-index: 9999;
+    display: none; /* 默认隐藏 */
+}
+
+/* 强制启用调试信息的类 */
+.show-edge-debug .edge-debug::before {
+    display: block !important;
+}
