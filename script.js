@@ -182,6 +182,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 处理外部链接
     handleExternalLinks();
+    
+    // 初始化轮播图
+    initializeCarousel();
 
     // 添加键盘导航支持
     document.addEventListener('keydown', function(e) {
@@ -189,10 +192,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const keyMap = {
             '1': 'lab',
             '2': 'news', 
-            '3': 'leader',
-            '4': 'member',
-            '5': 'research',
-            '6': 'project'
+            '3': 'member',
+            '4': 'research',
+            '5': 'project'
         };
         
         if (keyMap[e.key]) {
@@ -231,7 +233,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (Math.abs(swipeDistance) > swipeThreshold) {
             const currentPageId = document.querySelector('.page.active').id;
-            const pageOrder = ['lab', 'news', 'leader', 'member', 'research', 'project'];
+            const pageOrder = ['lab', 'news', 'member', 'research', 'project'];
             const currentIndex = pageOrder.indexOf(currentPageId);
             
             let newIndex;
@@ -560,4 +562,157 @@ function throttle(func, limit) {
             setTimeout(() => inThrottle = false, limit);
         }
     };
+}
+
+// 轮播图功能
+function initializeCarousel() {
+    let currentSlideIndex = 0;
+    const slides = document.querySelectorAll('.carousel-slide');
+    const indicators = document.querySelectorAll('.indicator');
+    const totalSlides = slides.length;
+    let autoSlideInterval;
+
+    // 如果没有轮播图元素，直接返回
+    if (totalSlides === 0) return;
+
+    // 显示指定的幻灯片
+    function showSlide(index) {
+        // 移除所有active类
+        slides.forEach(slide => slide.classList.remove('active'));
+        indicators.forEach(indicator => indicator.classList.remove('active'));
+        
+        // 添加active类到当前幻灯片
+        slides[index].classList.add('active');
+        indicators[index].classList.add('active');
+        
+        currentSlideIndex = index;
+    }
+
+    // 切换到下一张或上一张
+    function changeSlide(direction) {
+        let newIndex = currentSlideIndex + direction;
+        
+        if (newIndex >= totalSlides) {
+            newIndex = 0;
+        } else if (newIndex < 0) {
+            newIndex = totalSlides - 1;
+        }
+        
+        showSlide(newIndex);
+        resetAutoSlide();
+    }
+
+    // 切换到指定幻灯片
+    function currentSlide(index) {
+        showSlide(index - 1); // 因为按钮是从1开始的
+        resetAutoSlide();
+    }
+
+    // 自动轮播
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(() => {
+            changeSlide(1);
+        }, 4000); // 每4秒切换一次
+    }
+
+    // 重置自动轮播
+    function resetAutoSlide() {
+        clearInterval(autoSlideInterval);
+        startAutoSlide();
+    }
+
+    // 暂停自动轮播
+    function pauseAutoSlide() {
+        clearInterval(autoSlideInterval);
+    }
+
+    // 将函数绑定到全局作用域
+    window.changeSlide = changeSlide;
+    window.currentSlide = currentSlide;
+
+    // 添加鼠标悬停暂停功能
+    const carousel = document.querySelector('.lab-image-carousel');
+    if (carousel) {
+        carousel.addEventListener('mouseenter', pauseAutoSlide);
+        carousel.addEventListener('mouseleave', startAutoSlide);
+    }
+
+    // 添加键盘控制
+    document.addEventListener('keydown', function(e) {
+        // 只在lab页面激活时响应键盘事件
+        const labPage = document.getElementById('lab');
+        if (labPage && labPage.classList.contains('active')) {
+            if (e.key === 'ArrowLeft') {
+                changeSlide(-1);
+                e.preventDefault();
+            } else if (e.key === 'ArrowRight') {
+                changeSlide(1);
+                e.preventDefault();
+            }
+        }
+    });
+
+    // 添加触摸滑动支持
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    if (carousel) {
+        carousel.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        carousel.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            const swipeThreshold = 50;
+            const swipeDistance = touchEndX - touchStartX;
+            
+            if (Math.abs(swipeDistance) > swipeThreshold) {
+                if (swipeDistance > 0) {
+                    changeSlide(-1); // 向右滑动，显示上一张
+                } else {
+                    changeSlide(1); // 向左滑动，显示下一张
+                }
+            }
+        });
+    }
+
+    // 启动自动轮播
+    startAutoSlide();
+}
+
+// 研究条目展开/收缩功能
+function toggleResearchItem(button) {
+    const researchItem = button.closest('.research-item');
+    const isExpanded = researchItem.classList.contains('expanded');
+    
+    if (isExpanded) {
+        // 收缩
+        researchItem.classList.remove('expanded');
+    } else {
+        // 展开
+        researchItem.classList.add('expanded');
+        
+        // 可选：收缩其他已展开的条目（手风琴效果）
+        // const allItems = document.querySelectorAll('.research-item.expanded');
+        // allItems.forEach(item => {
+        //     if (item !== researchItem) {
+        //         item.classList.remove('expanded');
+        //     }
+        // });
+    }
+    
+    // 平滑滚动到展开的条目
+    if (!isExpanded) {
+        setTimeout(() => {
+            const rect = researchItem.getBoundingClientRect();
+            const isInViewport = rect.top >= 0 && rect.bottom <= window.innerHeight;
+            
+            if (!isInViewport) {
+                researchItem.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'nearest'
+                });
+            }
+        }, 300); // 等待展开动画开始
+    }
 }
