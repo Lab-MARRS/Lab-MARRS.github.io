@@ -1,5 +1,62 @@
+// Edge浏览器兼容性检测和修复
+function detectAndFixEdgeCompatibility() {
+    const isEdge = navigator.userAgent.indexOf('Edge') !== -1 || navigator.userAgent.indexOf('Edg') !== -1;
+    
+    if (isEdge) {
+        console.log('检测到Microsoft Edge浏览器，启用兼容性修复...');
+        
+        // 为body添加Edge标识类，让CSS能够应用特定样式
+        document.body.classList.add('edge-fallback');
+        
+        // 检测Edge版本类型
+        const isEdgeLegacy = navigator.userAgent.indexOf('Edge/') !== -1;
+        const isEdgeChromium = navigator.userAgent.indexOf('Edg/') !== -1;
+        
+        if (isEdgeLegacy) {
+            document.body.classList.add('edge-legacy');
+            console.log('检测到Edge Legacy (EdgeHTML)');
+        } else if (isEdgeChromium) {
+            document.body.classList.add('edge-chromium');
+            console.log('检测到Edge Chromium');
+        }
+        
+        // 修复CSS Grid在旧版Edge中的问题
+        const researchItems = document.querySelectorAll('.research-item');
+        researchItems.forEach(function(item) {
+            // 为Edge添加特殊的grid布局处理
+            item.style.display = '-ms-grid';
+            item.style.msGridColumns = '400px 1fr';
+            item.style.msGridRows = 'auto';
+        });
+        
+        // 修复transition动画问题
+        const publications = document.querySelectorAll('.research-publications');
+        publications.forEach(function(pub) {
+            pub.style.msTransition = 'max-height 0.5s ease, opacity 0.3s ease';
+        });
+        
+        // 修复轮播图透明度问题
+        const slides = document.querySelectorAll('.carousel-slide');
+        slides.forEach(function(slide) {
+            slide.style.msFilter = 'alpha(opacity=0)';
+        });
+        
+        const activeSlides = document.querySelectorAll('.carousel-slide.active');
+        activeSlides.forEach(function(slide) {
+            slide.style.msFilter = 'alpha(opacity=100)';
+        });
+        
+        // 添加调试标识（开发时可启用）
+        // document.body.classList.add('show-edge-debug');
+        
+        console.log('Edge兼容性修复已应用');
+    }
+}
+
 // 页面导航功能和交互效果
 document.addEventListener('DOMContentLoaded', function() {
+    // 首先执行Edge兼容性检测
+    detectAndFixEdgeCompatibility();
     // 获取导航相关元素
     const navLinks = document.querySelectorAll('.nav-link');
     const pages = document.querySelectorAll('.page');
@@ -564,7 +621,7 @@ function throttle(func, limit) {
     };
 }
 
-// 轮播图功能
+// 轮播图功能 - Edge兼容版本
 function initializeCarousel() {
     let currentSlideIndex = 0;
     const slides = document.querySelectorAll('.carousel-slide');
@@ -575,15 +632,31 @@ function initializeCarousel() {
     // 如果没有轮播图元素，直接返回
     if (totalSlides === 0) return;
 
-    // 显示指定的幻灯片
+    // Edge兼容的forEach替代方法
+    function forEachElement(nodeList, callback) {
+        if (nodeList.forEach) {
+            nodeList.forEach(callback);
+        } else {
+            // 手动实现forEach用于旧版Edge
+            for (let i = 0; i < nodeList.length; i++) {
+                callback(nodeList[i], i);
+            }
+        }
+    }
+
+    // 显示指定的幻灯片 - Edge兼容版本
     function showSlide(index) {
         // 移除所有active类
-        slides.forEach(slide => slide.classList.remove('active'));
-        indicators.forEach(indicator => indicator.classList.remove('active'));
+        forEachElement(slides, function(slide) {
+            slide.classList.remove('active');
+        });
+        forEachElement(indicators, function(indicator) {
+            indicator.classList.remove('active');
+        });
         
         // 添加active类到当前幻灯片
-        slides[index].classList.add('active');
-        indicators[index].classList.add('active');
+        if (slides[index]) slides[index].classList.add('active');
+        if (indicators[index]) indicators[index].classList.add('active');
         
         currentSlideIndex = index;
     }
@@ -608,9 +681,9 @@ function initializeCarousel() {
         resetAutoSlide();
     }
 
-    // 自动轮播
+    // 自动轮播 - Edge兼容版本
     function startAutoSlide() {
-        autoSlideInterval = setInterval(() => {
+        autoSlideInterval = setInterval(function() {
             changeSlide(1);
         }, 4000); // 每4秒切换一次
     }
@@ -680,9 +753,27 @@ function initializeCarousel() {
     startAutoSlide();
 }
 
-// 研究条目展开/收缩功能
+// 研究条目展开/收缩功能 - Edge兼容版本
 function toggleResearchItem(button) {
-    const researchItem = button.closest('.research-item');
+    // Edge兼容的closest方法
+    function findClosest(element, selector) {
+        if (element.closest) {
+            return element.closest(selector);
+        }
+        // 手动实现closest方法用于旧版Edge
+        let current = element;
+        while (current && current !== document.documentElement) {
+            if (current.matches && current.matches(selector)) {
+                return current;
+            }
+            current = current.parentElement;
+        }
+        return null;
+    }
+    
+    const researchItem = findClosest(button, '.research-item');
+    if (!researchItem) return;
+    
     const isExpanded = researchItem.classList.contains('expanded');
     
     if (isExpanded) {
@@ -701,17 +792,33 @@ function toggleResearchItem(button) {
         // });
     }
     
-    // 平滑滚动到展开的条目
+    // 平滑滚动到展开的条目 - Edge兼容版本
     if (!isExpanded) {
-        setTimeout(() => {
-            const rect = researchItem.getBoundingClientRect();
-            const isInViewport = rect.top >= 0 && rect.bottom <= window.innerHeight;
-            
-            if (!isInViewport) {
-                researchItem.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'nearest'
-                });
+        setTimeout(function() {
+            try {
+                const rect = researchItem.getBoundingClientRect();
+                const isInViewport = rect.top >= 0 && rect.bottom <= window.innerHeight;
+                
+                if (!isInViewport) {
+                    // Edge兼容的滚动方法
+                    if (researchItem.scrollIntoView) {
+                        if (typeof researchItem.scrollIntoView === 'function') {
+                            try {
+                                researchItem.scrollIntoView({
+                                    behavior: 'smooth',
+                                    block: 'nearest'
+                                });
+                            } catch (e) {
+                                // 降级到基本滚动
+                                researchItem.scrollIntoView(false);
+                            }
+                        } else {
+                            researchItem.scrollIntoView(false);
+                        }
+                    }
+                }
+            } catch (error) {
+                console.log('滚动功能在当前浏览器中不完全支持，但展开功能正常工作');
             }
         }, 300); // 等待展开动画开始
     }
