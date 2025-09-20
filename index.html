@@ -24,9 +24,6 @@
                     <a href="#news" class="nav-link" data-page="news">News</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#leader" class="nav-link" data-page="leader">Leader</a>
-                </li>
-                <li class="nav-item">
                     <a href="#member" class="nav-link" data-page="member">Member</a>
                 </li>
                 <li class="nav-item">
@@ -50,8 +47,32 @@
         <section id="lab" class="page active">
             <div class="container">
                 <div class="lab-intro">
-                    <div class="lab-image">
-                        <img src="Figure/签约3.png" alt="Lab Image">
+                    <div class="lab-image-carousel">
+                        <div class="carousel-container">
+                            <div class="carousel-slides">
+                                <div class="carousel-slide active">
+                                    <img src="Figure/签约3.png" alt="Lab Signing Ceremony 3">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="Figure/签约1.jpg" alt="Lab Signing Ceremony 1">
+                                </div>
+                                <div class="carousel-slide">
+                                    <img src="Figure/签约2.jpg" alt="Lab Signing Ceremony 2">
+                                </div>
+                                
+                            </div>
+                            <button class="carousel-btn prev" onclick="changeSlide(-1)">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="carousel-btn next" onclick="changeSlide(1)">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <div class="carousel-indicators">
+                                <button class="indicator active" onclick="currentSlide(1)"></button>
+                                <button class="indicator" onclick="currentSlide(2)"></button>
+                                <button class="indicator" onclick="currentSlide(3)"></button>
+                            </div>
+                        </div>
                     </div>
                     <div class="lab-text">
                         <h1>Welcome to MARRS</h1>
@@ -146,25 +167,26 @@
             </div>
         </section>
 
-        <!-- 领导页面 -->
-        <section id="leader" class="page">
+        <!-- 成员页面 -->
+        <section id="member" class="page">
             <div class="container">
+                <!-- Lab Director Section -->
                 <h1>Lab Director</h1>
                 <div class="leader-profile">
                     <div class="leader-image">
-                        <img src="Figure/nan_2.png" alt="Lab Director">
+                        <img src="Figure/nan.png" alt="Lab Director">
                     </div>
                     <div class="leader-info">
                         <h2>Dr. Nan.Zheng</h2>
                         <h3>Associate Professor & Lab Director</h3>
                         <p>Dr. Nan Zheng is an associate professor and the founding director of our research lab. received his BSc, MSc. and PhD degrees, in Transportation Engineering, from the Southeast University, Delft University of Technology, École polytechnique fédérale de Lausanne (EPFL), in 2007, 2009, and 2014, respectively.</p>
                         <p>Dr. Nan Zheng was previously appointed as a Post-doc by EPFL and the Federal Institute of Technology Zurich (ETHZ), then as an Associate Professor at the School of Transportation at Beihang University. Since 2018, A/Prof. Nan Zheng has been employed at the Civil and Environmental Engineering Department at Monash University.</p>
-                        <p>Dr. Nan Zheng’s researches focus on on macro traffic flow theory, regional traffic control and optimization, autonomous driving system training, safety assessment, and transportation service application.</p>
+                        <p>Dr. Nan Zheng's researches focus on on macro traffic flow theory, regional traffic control and optimization, autonomous driving system training, safety assessment, and transportation service application.</p>
                         <p>Dr. Nan Zheng is Associate Editor of IEEE Transaction on Intelligent Vehicles (Q1), Transportmetrica B: Transport Dynamics (Q1), Journal of Intelligent and Connected Vehicles (new journal); an editorial board member of Transportation Research Part C (Q1): Emerging Technologies.</p>
                     </div>
                 </div>
                 
-                <!-- 联系方式 -->
+                <!-- Contact Information -->
                 <div class="contact-section">
                     <h2>Contact Information</h2>
                     <div class="contact-links">
@@ -186,12 +208,7 @@
                         </a>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- 成员页面 -->
-        <section id="member" class="page">
-            <div class="container">
                 <h1>Lab Members</h1>
                 <div class="members-grid">
                     <!-- 研究生 -->
@@ -199,7 +216,7 @@
                         <img src="Figure/Yinfei.png" alt="Member 1">
                         <div class="member-info">
                             <h3>Dr. Yinfei Xi</h3>
-                            <p class="member-role">Scientist</p>
+                            <p class="member-role">Ph.D. Student</p>
                             <p class="research-direction">Project Manager</p>
                             <a href="https://www.monash.edu/engineering/yinfeixi" target="_blank" class="member-link">
                                 <i class="fas fa-external-link-alt"></i> Personal Homepage
@@ -210,7 +227,7 @@
                         <img src="Figure/zheng.png" alt="Member 2">
                         <div class="member-info">
                             <h3>Dr. Zheng Xu</h3>
-                            <p class="member-role">Scientist</p>
+                            <p class="member-role">Ph.D. Student</p>
                             <p class="research-direction">Simulation</p>
                             <a href="https://scholar.google.com/citations?user=ZliFm4gAAAAJ&hl=en" target="_blank" class="member-link">
                                 <i class="fas fa-external-link-alt"></i> Personal Homepage
@@ -221,7 +238,7 @@
                         <img src="Figure/dong.png" alt="Member 3">
                         <div class="member-info">
                             <h3>Dr. Dong Xiao</h3>
-                            <p class="member-role">Scientist</p>
+                            <p class="member-role">Ph.D. Student</p>
                             <p class="research-direction">Data</p>
                             <a href="https://www.monash.edu/engineering/dongxiao" target="_blank" class="member-link">
                                 <i class="fas fa-external-link-alt"></i> Personal Homepage
@@ -229,11 +246,22 @@
                         </div>
                     </div>
                     <div class="member-card">
+                        <img src="Figure/mohan.jpg" alt="Member 6">
+                        <div class="member-info">
+                            <h3>Mohan Kumar</h3>
+                            <p class="member-role">Ph.D. Student</p>
+                            <p class="research-direction">Road</p>
+                            <i class="fas fa-user"></i> No Homepage
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="member-card">
                         <img src="Figure/Ji.png" alt="Member 4">
                         <div class="member-info">
                             <h3>Ji Zhou</h3>
                             <p class="member-role">Ph.D. Student</p>
-                            <p class="research-direction">Algorithms</p>
+                            <p class="research-direction">Algorithm</p>
                             <i class="fas fa-user"></i> No Homepage
                             </a>
                         </div>
@@ -243,27 +271,29 @@
                         <div class="member-info">
                             <h3>Yuxuan Li</h3>
                             <p class="member-role">Ph.D. Student</p>
-                            <p class="research-direction">Algorithms</p>
+                            <p class="research-direction">Human Factor</p>
                             <i class="fas fa-user"></i> No Homepage
                             </a>
                         </div>
                     </div>
+
                     <div class="member-card">
-                        <img src="Figure/mohan.png" alt="Member 6">
+                        <img src="Figure/jiaxuan.jpg" alt="Member 5">
                         <div class="member-info">
-                            <h3>Mohan Kumar</h3>
+                            <h3>Jiaxuan Zhou</h3>
                             <p class="member-role">Ph.D. Student</p>
-                            <p class="research-direction">Algorithms</p>
+                            <p class="research-direction">Algorithm</p>
                             <i class="fas fa-user"></i> No Homepage
                             </a>
                         </div>
                     </div>
+                    
                     <div class="member-card">
-                        <img src="Figure/junlan.png" alt="Member 7">
+                        <img src="Figure/junlan.jpg" alt="Member 7">
                         <div class="member-info">
                             <h3>Junlan Chen</h3>
                             <p class="member-role">Ph.D. Student</p>
-                            <p class="research-direction">Algorithms</p>
+                            <p class="research-direction">Algorithm</p>
                             <i class="fas fa-user"></i> No Homepage
                             </a>
                         </div>
@@ -273,7 +303,7 @@
                         <div class="member-info">
                             <h3>Tanghan Jiang</h3>
                             <p class="member-role">Ph.D. Student</p>
-                            <p class="research-direction">Algorithms</p>
+                            <p class="research-direction">Simulation</p>
                             <i class="fas fa-user"></i> No Homepage
                             </a>
                         </div>
@@ -286,17 +316,50 @@
                 <h1>Past Members</h1>
                 <div class="members-grid">
                     <!-- 研究生 -->
-                    <div class="member-card">
+                    
                         
                     
                     
                     
                     <div class="member-card">
-                        <img src="Figure/test.png" alt="Member 6">
+                        <img src="Figure/ruyang.png" alt="Member 6">
                         <div class="member-info">
-                            <h3>Ao Ao</h3>
+                            <h3>Ruyang Yin</h3>
+                            <p class="member-role">Ph.D. Student</p>
+                            <p class="research-direction">Algorithm</p>
+                            <i class="fas fa-user"></i> No Homepage
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="member-card">
+                        <img src="Figure/wenhua.png" alt="Member 6">
+                        <div class="member-info">
+                            <h3>Wenhua Jiang</h3>
                             <p class="member-role">Ph.D. Student</p>
                             <p class="research-direction">Data</p>
+                            <i class="fas fa-user"></i> No Homepage
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="member-card">
+                        <img src="Figure/qishen.png" alt="Member 6">
+                        <div class="member-info">
+                            <h3>Qishen Ye</h3>
+                            <p class="member-role">Ph.D. Student</p>
+                            <p class="research-direction">Simulation</p>
+                            <i class="fas fa-user"></i> No Homepage
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="member-card">
+                        <img src="Figure/woman.png" alt="Member 6">
+                        <div class="member-info">
+                            <h3>Yifan Chen</h3>
+                            <p class="member-role">Ph.D. Student</p>
+                            <p class="research-direction">Simulation</p>
                             <i class="fas fa-user"></i> No Homepage
                             </a>
                         </div>
@@ -314,43 +377,361 @@
             <div class="container">
                 <h1>Research Areas</h1>
                 <div class="research-list">
-                    
-                    
-                    
-                    <div class="research-item">
-                        <img src="Figure/minetruck.png" alt="Robotics Research">
+                    <div class="research-item expandable">
+                        <img src="Figure/vehicle.png" alt="Robotics Research">
                         <div class="research-content">
-                            <h2>Robotics & Autonomous Systems</h2>
-                            <p>We research intelligent robotics systems that can operate autonomously in complex environments. Our work includes robot perception, motion planning, and human-robot interaction. We develop algorithms for mobile robots, manipulation systems, and multi-robot coordination with applications in manufacturing, healthcare, and service industries.</p>
+                            <div class="research-header">
+                                <h2>Robotics & Autonomous Systems</h2>
+                                <button class="expand-btn" onclick="toggleResearchItem(this)">
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                            </div>
+                            <p>We research intelligent robotics systems that can operate autonomously in complex environments. Our work includes robot perception, motion planning, and human-robot interaction. We develop algorithms for mobile robots, manipulation systems, and multi-robot coordination with applications in transportation, logistics, and service industries.</p>
                             <div class="research-tags">
                                 <span class="tag">Robot Perception</span>
-                                <span class="tag">Path Planning</span>
+                                <span class="tag">Motion Planning</span>
                                 <span class="tag">Human-Robot Interaction</span>
                             </div>
                         </div>
+                        <div class="research-publications">
+                            <h3>Selected Publications</h3>
+                            <div class="publication-list">
+
+                                <div class="publication-item">
+                                    <h4>Post-interactive multimodal trajectory prediction for autonomous driving</h4>
+                                    <p class="publication-authors">Ziyi Huang, Yang Li, Dushuai Li, Yao Mu, Hongmao Qin, Nan Zheng</p>
+                                    <p class="publication-venue">Transportation Research Part C: Emerging Technologies, 2025</p>
+                                    <a href="https://www.sciencedirect.com/science/article/abs/pii/S0968090X2500275X" class="publication-link">View Paper</a>
+                                </div>
+
+                                <div class="publication-item">
+                                    <h4>Analyzing riders’ behavioral adaptation to driving patterns of advanced autonomous vehicles: A virtual reality simulation study</h4>
+                                    <p class="publication-authors">Zheng Xu, Tanghan Jiang, Dong Xiao, Yihai Fang, Nan Zheng</p>
+                                    <p class="publication-venue">International Journal of Human–Computer Interaction, 2025</p>
+                                    <a href="https://www.tandfonline.com/doi/full/10.1080/10447318.2024.2392069" class="publication-link">View Paper</a>
+                                </div>
+                                
+                                <div class="publication-item">
+                                    <h4>Safety validation for connected autonomous vehicles using large-scale testing tracks in high-fidelity simulation environment</h4>
+                                    <p class="publication-authors">Zheng Xu, Xiaomeng Wang, Xuesong Wang, Nan Zheng</p>
+                                    <p class="publication-venue">Accident Analysis & Prevention, 2025</p>
+                                    <a href="https://www.sciencedirect.com/science/article/pii/S0001457525000971" class="publication-link">View Paper</a>
+                                </div>
+                                
+                                <div class="publication-item">
+                                    <h4>Time-dependent effect of advanced driver assistance systems on driver behavior based on connected vehicle data</h4>
+                                    <p class="publication-authors">Yuzhi Chen, Yuanchang Xie, Chen Wang, Liguo Yang, Nan Zheng, Lan Wu</p>
+                                    <p class="publication-venue">Analytic Methods in Accident Research, 2025</p>
+                                    <a href="https://www.sciencedirect.com/science/article/pii/S2213665725000016" class="publication-link">View Paper</a>
+                                </div>
+                                
+                                <div class="publication-item">
+                                    <h4>String stability under general topologies for CAVs: A coupled sliding surface-based distributed TMPC approach</h4>
+                                    <p class="publication-authors">Xuan Wang, Hongmao Qin, Yougang Bian, Dezong Zhao, Nan Zheng</p>
+                                    <p class="publication-venue">Transportation Research Part E: Logistics and Transportation Review, 2025</p>
+                                    <a href="https://doi.org/10.1016/j.tre.2024.103937" class="publication-link">View Paper</a>
+                                </div>
+                                
+                                <div class="publication-item">
+                                    <h4>Real-time model predictive control of path-following for autonomous vehicles towards model mismatch and uncertainty</h4>
+                                    <p class="publication-authors">Wenqiang Zhao, Hongqian Wei, Qiang Ai, Nan Zheng, Chen Lin, Youtong Zhang</p>
+                                    <p class="publication-venue">Control Engineering Practice, 2024</p>
+                                    <a href="https://www.sciencedirect.com/science/article/abs/pii/S0967066124002855" class="publication-link">View Paper</a>
+                                </div>
+                                
+                                <div class="publication-item">
+                                    <h4>Investigating the Impact of Automated Vehicles on the Safety and Operation of Low‐Speed Urban Networks</h4>
+                                    <p class="publication-authors">Amir Hossein Karbasi, Nan Zheng, Steve O' Hern</p>
+                                    <p class="publication-venue">Journal of Advanced Transportation, 2024</p>
+                                    <a href="https://onlinelibrary.wiley.com/doi/10.1155/2024/3835831" class="publication-link">View Paper</a>
+                                </div>
+                                
+                                <div class="publication-item">
+                                    <h4>Integrating connected autonomous shuttle buses as an alternative for public transport–A simulation-based study</h4>
+                                    <p class="publication-authors">Zheng Xu, Nan Zheng</p>
+                                    <p class="publication-venue">Multimodal Transportation, 2024</p>
+                                    <a href="https://doi.org/10.1016/j.multra.2024.100133" class="publication-link">View Paper</a>
+                                </div>
+                                
+                                <div class="publication-item">
+                                    <h4>Analyzing scenario criticality and rider’s intervention behavior during high-level autonomous driving: A VR-enabled approach and empirical insights</h4>
+                                    <p class="publication-authors">Zheng Xu, Nan Zheng, Yisheng Lv, Yihai Fang, Hai L. Vu</p>
+                                    <p class="publication-venue">Transportation Research Part C: Emerging Technologies, 2023</p>
+                                    <a href="https://doi.org/10.1016/j.trc.2023.104451" class="publication-link">View Paper</a>
+                                </div>
+                    
+                                
+                                
+                                <div class="publication-item">
+                                    <h4>Infrastructure requirement for autonomous vehicle integration for future urban and suburban roads–Current practice and a case study of Melbourne, Australia</h4>
+                                    <p class="publication-authors">Hesavar Manivasakan, Riddhi Kalra, Steve O'Hern, Yihai Fang, Yinfei Xi, Nan Zheng</p>
+                                    <p class="publication-venue">Transportation Research Part A: Policy and Practice, 2021</p>
+                                    <a href="https://www.sciencedirect.com/science/article/abs/pii/S0965856421001944" class="publication-link">View Paper</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="research-item">
-                        <img src="https://via.placeholder.com/500x300/4A90E2/FFFFFF?text=Machine+Learning" alt="Machine Learning Research">
+                    <div class="research-item expandable">
+                        <img src="Figure/algorithms.png" alt="Machine Learning Research">
                         <div class="research-content">
-                            <h2>Machine Learning & Artificial Intelligence</h2>
-                            <p>Our research in machine learning focuses on developing novel algorithms and methodologies for solving complex real-world problems. We work on deep learning, reinforcement learning, and transfer learning with applications in computer vision, natural language processing, and autonomous systems. Our goal is to create intelligent systems that can learn, adapt, and make decisions in dynamic environments.</p>
+                            <div class="research-header">
+                                <h2>Machine Learning & Artificial Intelligence</h2>
+                                <button class="expand-btn" onclick="toggleResearchItem(this)">
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                            </div>
+                            <p>Our research in machine learning focuses on developing novel algorithms and methodologies for solving complex real-world problems. We work on deep learning, reinforcement learning, and transfer learning with applications in autonomous vehicles and robotics systems. Our goal is to create intelligent systems that can learn, adapt, and make decisions in dynamic environments.</p>
                             <div class="research-tags">
                                 <span class="tag">Deep Learning</span>
                                 <span class="tag">Neural Networks</span>
-                                <span class="tag">Computer Vision</span>
+                                <span class="tag">Control</span>
+                            </div>
+                        </div>
+                        <div class="research-publications">
+                            <h3>Selected Publications</h3>
+                            <div class="publication-list">
+                                <div class="publication-item">
+                                    <h4>Agentic Large Language Models for day-to-day route choices</h4>
+                                    <p class="publication-authors">Leizhen Wang, Peibo Duan, Zhengbing He, Cheng Lyu, Xin Chen, Nan Zheng, Li Yao, Zhenliang Ma</p>
+                                    <p class="publication-venue">Transportation Research Part C: Emerging Technologies, 2025</p>
+                                    <a href="https://www.sciencedirect.com/science/article/pii/S0968090X25003110" class="publication-link">View Paper</a>
+                                </div>
+                                
+                                <div class="publication-item">
+                                    <h4>Data-driven optimization for ride-sourcing vehicle dispatching and relocation under demand and travel time uncertainty</h4>
+                                    <p class="publication-authors">Yunping Huang, Nan Zheng, Zheng Huang, Enming Liang, Shu-Chien Hsu, Renxin Zhong</p>
+                                    <p class="publication-venue">Transportation Research Part C: Emerging Technologies, 2025</p>
+                                    <a href="https://www.sciencedirect.com/science/article/abs/pii/S0968090X25002219" class="publication-link">View Paper</a>
+                                </div>
+                                
+                                
+                                <div class="publication-item">
+                                    <h4>Bi-objective robust nonlinear decision approach for en-route bus speed control considering implementation errors and traffic uncertainties</h4>
+                                    <p class="publication-authors">Pengjie Liu, Liang Zheng, Nan Zheng</p>
+                                    <p class="publication-venue">Transportation Research Part C: Emerging Technologies, 2024</p>
+                                    <a href="https://www.sciencedirect.com/science/article/pii/S0968090X24003917" class="publication-link">View Paper</a>
+                                </div>
+                                
+                                <div class="publication-item">
+                                    <h4>Coordinated optimization of signal timing for intersections with dynamic shared through-and right-turn lanes</h4>
+                                    <p class="publication-authors">Zhe Zheng, Jian Yuan, Kun An, Nan Zheng, Wanjing Ma</p>
+                                    <p class="publication-venue">Journal of Intelligent and Connected Vehicles, 2024</p>
+                                    <a href="https://ieeexplore.ieee.org/abstract/document/10695162" class="publication-link">View Paper</a>
+                                </div>
+                                
+                                <div class="publication-item">
+                                    <h4>A novel parallel computing framework for traffic assignment problem: Integrating alternating direction method of multipliers with Jacobi over relaxation method</h4>
+                                    <p class="publication-authors">Zhiyuan Liu, Yu Dong, Honggang Zhang, Nan Zheng, Kai Huang</p>
+                                    <p class="publication-venue">Transportation Research Part E: Logistics and Transportation Review, 2024</p>
+                                    <a href="https://www.sciencedirect.com/science/article/abs/pii/S1366554524002783" class="publication-link">View Paper</a>
+                                </div>
+                                
+                                <div class="publication-item">
+                                    <h4>A deep reinforcement learning based distributed control strategy for connected automated vehicles in mixed traffic platoon</h4>
+                                    <p class="publication-authors">Haotian Shi, Danjue Chen, Nan Zheng, Xin Wang, Yang Zhou, Bin Ran</p>
+                                    <p class="publication-venue">Transportation Research Part C: Emerging Technologies, 2023</p>
+                                    <a href="https://www.sciencedirect.com/science/article/abs/pii/S0968090X23000086" class="publication-link">View Paper</a>
+                                </div>
+                                
+                                <div class="publication-item">
+                                    <h4>A simulation-based model for continuous network design problem using Bayesian optimization</h4>
+                                    <p class="publication-authors">Ruyang Yin, Zhiyuan Liu, Nan Zheng</p>
+                                    <p class="publication-venue">IEEE Transactions on Intelligent Transportation Systems, 2022</p>
+                                    <a href="https://ieeexplore.ieee.org/abstract/document/9784826" class="publication-link">View Paper</a>
+                                </div>
+                                
+                                <div class="publication-item">
+                                    <h4>Reconstructing vehicle trajectories on freeways based on motion detection data of connected and automated vehicles</h4>
+                                    <p class="publication-authors">Peng Chen, Tong Wang, Nan Zheng</p>
+                                    <p class="publication-venue">Journal of Intelligent Transportation Systems, 2022</p>
+                                    <a href="https://www.tandfonline.com/doi/abs/10.1080/15472450.2021.1955211" class="publication-link">View Paper</a>
+                                </div>
+                                
+                                <div class="publication-item">
+                                    <h4>Improved dynamic time warping algorithm for bus route trajectory curve fitting</h4>
+                                    <p class="publication-authors">Yinfei Xi, Di Huang, Yu Yuan, Zhiyuan Liu, Khadka Anish, Nan Zheng</p>
+                                    <p class="publication-venue">Journal of Transportation Engineering, Part A: Systems, 2021</p>
+                                    <a href="https://ascelibrary.org/doi/abs/10.1061/JTEPBS.0000544" class="publication-link">View Paper</a>
+                                </div>
+                                
                             </div>
                         </div>
                     </div>
                     
-                    <div class="research-item">
-                        <img src="Figure/traffic.png" alt="Data Science Research">
+                    <div class="research-item expandable">
+                        <img src="Figure/data.png" alt="Data Science Research">
                         <div class="research-content">
-                            <h2>Data Science & Analytics</h2>
+                            <div class="research-header">
+                                <h2>Data Science & Analytics</h2>
+                                <button class="expand-btn" onclick="toggleResearchItem(this)">
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                            </div>
                             <p>We develop advanced data mining and analytics techniques to extract meaningful insights from large-scale datasets. Our research encompasses statistical modeling, predictive analytics, and visualization methods. We collaborate with various domains including transport, freight, and robot to solve data-driven challenges and support evidence-based decision making.</p>
                             <div class="research-tags">
                                 <span class="tag">Big Data</span>
                                 <span class="tag">Statistical Modeling</span>
                                 <span class="tag">Visualization</span>
+                            </div>
+                        </div>
+                        <div class="research-publications">
+                            <h3>Selected Publications</h3>
+                            <div class="publication-list">
+                                <div class="publication-item">
+                                    <h4>Prediction and interpretation of crash severity using machine learning based on imbalanced traffic crash data</h4>
+                                    <p class="publication-authors">Junlan Chen, Pei Liu, Shuo Wang, Nan Zheng, Xiucheng Guo</p>
+                                    <p class="publication-venue">Journal of Safety Research, 2025</p>
+                                    <a href="https://www.sciencedirect.com/science/article/abs/pii/S0022437525000234" class="publication-link">View Paper</a>
+                                </div>
+                                
+                                <div class="publication-item">
+                                    <h4>Estimating safety benefit of in-vehicle work zone safety technology alerts: A counterfactual Monte-Carlo simulation approach</h4>
+                                    <p class="publication-authors">Qishen Ye, Yihai Fang, Nan Zheng</p>
+                                    <p class="publication-venue">Accident Analysis & Prevention, 2025</p>
+                                    <a href="https://www.sciencedirect.com/science/article/pii/S0001457525001009" class="publication-link">View Paper</a>
+                                </div>
+                                
+                                <div class="publication-item">
+                                    <h4>Does built environment have impact on traffic congestion?—A bootstrap mediation analysis on a case study of Melbourne</h4>
+                                    <p class="publication-authors">Dong Xiao, Inhi Kim, Nan Zheng</p>
+                                    <p class="publication-venue">Transportation Research Part A: Policy and Practice, 2024</p>
+                                    <a href="https://www.sciencedirect.com/science/article/pii/S0965856424003458" class="publication-link">View Paper</a>
+                                </div>
+                                
+                                <div class="publication-item">
+                                    <h4>Performance evaluation of struck-by-accident alert systems for road work zone safety</h4>
+                                    <p class="publication-authors">Qishen Ye, Yihai Fang, Nan Zheng</p>
+                                    <p class="publication-venue">Automation in Construction, 2024</p>
+                                    <a href="https://www.sciencedirect.com/science/article/pii/S0926580524005739" class="publication-link">View Paper</a>
+                                </div>
+                                
+                                <div class="publication-item">
+                                    <h4>Understanding construction workers’ cognitive processes under risky scenarios through electroencephalography</h4>
+                                    <p class="publication-authors">Tanghan Jiang, Yihai Fang, Nan Zheng, Jiayu Chen</p>
+                                    <p class="publication-venue">Automation in Construction, 2024</p>
+                                    <a href="https://www.sciencedirect.com/science/article/pii/S0926580524004102" class="publication-link">View Paper</a>
+                                </div>
+                                
+                                <div class="publication-item">
+                                    <h4>Investigating built environment and traffic flow impact on crash frequency in urban road networks</h4>
+                                    <p class="publication-authors">Dong Xiao, Hongliang Ding, NN Sze, Nan Zheng</p>
+                                    <p class="publication-venue">Accident Analysis & Prevention, 2024</p>
+                                    <a href="https://www.sciencedirect.com/science/article/pii/S0001457524001064" class="publication-link">View Paper</a>
+                                </div>
+                                
+                                <div class="publication-item">
+                                    <h4>A novel generative adversarial network for improving crash severity modeling with imbalanced data</h4>
+                                    <p class="publication-authors">Junlan Chen, Ziyuan Pu, Nan Zheng, Xiao Wen, Hongliang Ding, Xiucheng Guo</p>
+                                    <p class="publication-venue">Transportation Research Part C: Emerging Technologies, 2024</p>
+                                    <a href="https://www.sciencedirect.com/science/article/abs/pii/S0968090X24001633" class="publication-link">View Paper</a>
+                                </div>
+                                
+                                <div class="publication-item">
+                                    <h4>Assessing bicycle-vehicle conflicts at urban intersections utilizing a VR integrated simulation approach</h4>
+                                    <p class="publication-authors">Zheng Xu, Nan Zheng, David B. Logan, Hai L. Vu</p>
+                                    <p class="publication-venue">Accident Analysis & Prevention, 2023</p>
+                                    <a href="https://www.sciencedirect.com/science/article/pii/S0001457523002415" class="publication-link">View Paper</a>
+                                </div>
+                                
+                                <div class="publication-item">
+                                    <h4>Simulation-based analysis of second-best multimodal network capacity</h4>
+                                    <p class="publication-authors">Ruyang Yin, Xin Liu, Nan Zheng, Zhiyuan Liu</p>
+                                    <p class="publication-venue">Transportation Research Part C: Emerging Technologies, 2022</p>
+                                    <a href="https://www.sciencedirect.com/science/article/abs/pii/S0968090X22003382" class="publication-link">View Paper</a>
+                                </div>
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="research-item expandable">
+                        <img src="Figure/traffic_flow.png" alt="Data Science Research">
+                        <div class="research-content">
+                            <div class="research-header">
+                                <h2>Traffic Flow Operation and Control</h2>
+                                <button class="expand-btn" onclick="toggleResearchItem(this)">
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                            </div>
+                            <p>With more than 15 years research in this area, we are one of the internationally-recognized research teams on traffic flow modeling and control for large-scale urban road networks, resulting in publications in prestigious journals such as Transportation Research Part B, Part C, Part A. In particular, we incorporate “network science” into dynamic traffic flow modeling and control for large-scale road networks.</p>
+                            <div class="research-tags">
+                                <span class="tag">Traffic Flow</span>
+                                <span class="tag">MFD</span>
+                            </div>
+                        </div>
+                        <div class="research-publications">
+                            <h3>Selected Publications</h3>
+                            <div class="publication-list">
+                                <div class="publication-item">
+                                    <h4>Ramp layout optimization and integrated control for mixed networks of freeways and arterial roads in an intelligent connected vehicle environment</h4>
+                                    <p class="publication-authors">Heng Ding, Yuanhao Meng, Nan Zheng, Xiaoyan Zheng, Wenjuan Huang, Chenyang Qin</p>
+                                    <p class="publication-venue">Transportation Research Part C: Emerging Technologies, 2025</p>
+                                    <a href="https://www.sciencedirect.com/science/article/abs/pii/S0968090X25001287" class="publication-link">View Paper</a>
+                                </div>
+                                
+                                <div class="publication-item">
+                                    <h4>Two-layer control strategy response to regional cyberattacks on large-scale road networks in a connected vehicle environment</h4>
+                                    <p class="publication-authors">Liangwen Wang, Heng Ding, Nan Zheng, Xiaoyan Zheng</p>
+                                    <p class="publication-venue">Transportation Research Part C: Emerging Technologies, 2025</p>
+                                    <a href="https://www.sciencedirect.com/science/article/abs/pii/S0968090X25001202" class="publication-link">View Paper</a>
+                                </div>
+                                
+                                <div class="publication-item">
+                                    <h4>A novel hierarchical perimeter control method for road networks considering boundary congestion in a mixed CAV and HV traffic environment</h4>
+                                    <p class="publication-authors">Heng Ding, Liangwen Wang, Nan Zheng, Zeyang Cheng, Xiaoyan Zheng, Jiye Li</p>
+                                    <p class="publication-venue">Transportation Research Part B: Methodological, 2025</p>
+                                    <a href="https://www.sciencedirect.com/science/article/abs/pii/S0191261525000682" class="publication-link">View Paper</a>
+                                </div>
+                                
+                                <div class="publication-item">
+                                    <h4>Percolation-based dynamic perimeter control for mitigating congestion propagation in urban road networks</h4>
+                                    <p class="publication-authors">Homayoun Hamedmoghadam, Nan Zheng, Daqing Li, Hai L Vu</p>
+                                    <p class="publication-venue">Transportation research part C: emerging technologies, 2022</p>
+                                    <a href="https://www.sciencedirect.com/science/article/abs/pii/S0968090X22003357" class="publication-link">View Paper</a>
+                                </div>
+                                
+                                <div class="publication-item">
+                                    <h4>Dynamic dispatch of connected taxis for large-scale urban road networks with stochastic demands: An MFD-enabled hierarchical and cooperative approach</h4>
+                                    <p class="publication-authors">Heng Ding, Jiye Li, Nan Zheng, Xiaoyan Zheng, Wenjuan Huang, Haijian Bai</p>
+                                    <p class="publication-venue">Transportation research part C: emerging technologies, 2022</p>
+                                    <a href="https://www.sciencedirect.com/science/article/abs/pii/S0968090X22002194" class="publication-link">View Paper</a>
+                                </div>
+                                
+                                <div class="publication-item">
+                                    <h4>Resilient perimeter control for hyper-congested two-region networks with MFD dynamics</h4>
+                                    <p class="publication-authors">Shengling Gao, Daqing Li, Nan Zheng, Ruiqi Hu, Zhikun She</p>
+                                    <p class="publication-venue">Transportation Research Part B: Methodological, 2022</p>
+                                    <a href="https://www.sciencedirect.com/science/article/abs/pii/S0191261521002307" class="publication-link">View Paper</a>
+                                </div>
+                                
+                                <div class="publication-item">
+                                    <h4>Area-based equitable pricing strategies for multimodal urban networks with heterogeneous users</h4>
+                                    <p class="publication-authors">Nan Zheng, Nikolas Geroliminis</p>
+                                    <p class="publication-venue">Transportation Research Part A: Policy and Practice, 2020</p>
+                                    <a href="https://www.sciencedirect.com/science/article/abs/pii/S0968090X22003382" class="publication-link">View Paper</a>
+                                </div>
+                                
+                                <div class="publication-item">
+                                    <h4>Modeling and optimization of multimodal urban networks with limited parking and dynamic pricing</h4>
+                                    <p class="publication-authors">Nan Zheng, Nikolas Geroliminis</p>
+                                    <p class="publication-venue">Transportation Research Part B: Methodological, 2016</p>
+                                    <a href="https://www.sciencedirect.com/science/article/abs/pii/S0191261515002234" class="publication-link">View Paper</a>
+                                </div>
+                                
+                                <div class="publication-item">
+                                    <h4>Time-dependent area-based pricing for multimodal systems with heterogeneous users in an agent-based environment</h4>
+                                    <p class="publication-authors">Nan Zheng, Guillaume Rérat, Nikolas Geroliminis</p>
+                                    <p class="publication-venue">Transportation research part C: emerging technologies, 2016</p>
+                                    <a href="https://www.sciencedirect.com/science/article/abs/pii/S0968090X15003745" class="publication-link">View Paper</a>
+                                </div>
+                                
+                                <div class="publication-item">
+                                    <h4>A dynamic cordon pricing scheme combining the macroscopic fundamental diagram and an agent-based traffic model</h4>
+                                    <p class="publication-authors">Nan Zheng, Rashid A Waraich, Kay W Axhausen, Nikolas Geroliminis</p>
+                                    <p class="publication-venue">Transportation Research Part A: Policy and Practice, 2012</p>
+                                    <a href="https://www.sciencedirect.com/science/article/abs/pii/S096585641200081X" class="publication-link">View Paper</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -364,10 +745,10 @@
                 <h1>Active Projects</h1>
                 <div class="project-list">
                     <div class="project-item">
-                        <img src="Figure/mine.png" alt="AI Project">
+                        <img src="Figure/mine.png" alt="Project">
                         <div class="project-content">
                             <h2>Autonomous Driving Key Technology and Control Platform for Operating Open-pit Mine Trucks</h2>
-                            <p>This project aims to develop the technologies for operating unmanned transportation at open-pit mining sites. The project leverages novel methods for infrastructure planning, real-time monitoring, fault detection and prevention, movement and control, operation scheduling, and digital-twin and visualization.</p>
+                            <p> </p>
                             <div class="project-meta">
                                 <span class="project-status active">$490K AUD</span>
                                 <span class="project-funding">Funded by JITRR & MONASH</span>
@@ -377,10 +758,10 @@
                     </div>
                     
                     <div class="project-item">
-                        <img src="Figure/minetruck.png" alt="Smart City Project">
+                        <img src="Figure/remotetruck.png" alt="Project">
                         <div class="project-content">
                             <h2>Remote Control Training Platform and Program Development for Autonomous Driving Trucks</h2>
-                            <p>We are developing .</p>
+                            <p> </p>
                             <div class="project-meta">
                                 <span class="project-status active">$182K AUD</span>
                                 <span class="project-funding">Funded by WIIRI</span>
@@ -390,10 +771,10 @@
                     </div>
                     
                     <div class="project-item">
-                        <img src="Figure/traffic.png" alt="Computing Project">
+                        <img src="Figure/traffic.png" alt="Project">
                         <div class="project-content">
                             <h2>Hierarchical Control for Multi-structure Large-scale Urban Road Networks using Network Science</h2>
-                            <p>This project explores .</p>
+                            <p> </p>
                             <div class="project-meta">
                                 <span class="project-status active">$160K AUD</span>
                                 <span class="project-funding">Funded by NSF-China</span>
@@ -409,10 +790,10 @@
                 <h1>Completed Projects</h1>
                 <div class="project-list">
                     <div class="project-item">
-                        <img src="Figure/shuttlebus.png" alt="AI Project">
+                        <img src="Figure/shuttlebus.png" alt="Project">
                         <div class="project-content">
                             <h2>Platform, Technologies and Service Solutions for Autonomous Vehicles for Touristic Shuttle Buses</h2>
-                            <p>This project aims to develop </p>
+                            <p> </p>
                             <div class="project-meta">
                                 <span class="project-status completed">$921K AUD</span>
                                 <span class="project-funding">Funded by JITRR & MONASH</span>
@@ -421,10 +802,10 @@
                         </div>
                     </div>
                     <div class="project-item">
-                        <img src="Figure/traffic.png" alt="AI Project">
+                        <img src="Figure/congestion.png" alt="Project">
                         <div class="project-content">
                             <h2>Macroscopic Approaches for Monitoring and Managing Traffic Congestion in Multimodal Road Networks</h2>
-                            <p>This project aims to develop </p>
+                            <p> </p>
                             <div class="project-meta">
                                 <span class="project-status completed">$145K AUD</span>
                                 <span class="project-funding">Funded by NSF-China</span>
@@ -434,10 +815,10 @@
                         
                     </div>
                     <div class="project-item">
-                        <img src="Figure/traffic.png" alt="AI Project">
+                        <img src="Figure/signalisedroad.png" alt="Project">
                         <div class="project-content">
                             <h2>Traffic Control for Large-scale Signalised Road Networks of Connected Vehicles and Demand Uncertainties</h2>
-                            <p>This project aims to develop </p>
+                            <p> </p>
                             <div class="project-meta">
                                 <span class="project-status completed">$160K AUD</span>
                                 <span class="project-funding">Funded by NSF-China</span>
@@ -460,7 +841,6 @@
     <script src="script.js"></script>
 </body>
 </html>
-
 
 
 
