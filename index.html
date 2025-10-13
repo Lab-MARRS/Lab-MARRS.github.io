@@ -15,6 +15,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
+                <img src="Figure/logo.png" alt="Lab Logo" class="nav-logo-img">
                 <h2>MARRS Lab</h2>
             </div>
             <ul class="nav-menu">
@@ -258,13 +259,13 @@
                             </a>
                         </div>
                     </div>
-                    <div class="member-card">
+                    <div class="member-card clickable-member" onclick="openMemberModal('zheng-xu')">
                         <img src="Figure/zheng.png" alt="Member 2">
                         <div class="member-info">
                             <h3>Dr. Zheng Xu</h3>
                             <p class="member-role">Ph.D. Student</p>
                             <p class="research-direction">Simulation</p>
-                            <a href="https://scholar.google.com/citations?user=ZliFm4gAAAAJ&hl=en" target="_blank" class="member-link">
+                            <a href="https://scholar.google.com/citations?user=ZliFm4gAAAAJ&hl=en" target="_blank" class="member-link" onclick="event.stopPropagation()">
                                 <i class="fas fa-external-link-alt"></i> Personal Homepage
                             </a>
                         </div>
@@ -876,10 +877,24 @@
         </section>
     </main>
 
+    <!-- 成员详情弹窗 -->
+    <div id="memberModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">成员详情</h2>
+                <span class="modal-close" onclick="closeMemberModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="modalContent">
+                    <!-- 动态内容将在这里加载 -->
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
-
 
 
 
