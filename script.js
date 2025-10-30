@@ -594,6 +594,94 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('%c页面已完全加载，所有交互功能已启用', 'color: #48bb78; font-size: 12px;');
 });
 
+// 成员弹窗功能
+const memberData = {
+    'zheng-xu': {
+
+        introImage: 'Figure/xu_intro.png',
+        description1: `Dr. Zheng Xu has been selected for the 2025 “Rising Stars in Transportation” Young Investigator Advancement Program. The program is open globally to candidates from universities, industry, and research institutes, and annually selects 35 outstanding transportation scholars under the age of 35. It identifies young researchers who drive disruptive, original scientific and technological innovation and address critical, foundational technical challenges in transportation, with the aim of fostering the sustainable development of early-career research talent.`,
+        description2: `Dr. Xu’s research employs a human-centric approach to optimize the operational efficiency of Autonomous Driving Systems (ADS). It primarily addresses the gap between technological advancements and human acceptance in high-level autonomous driving. The main academic contributions include: 1) A method for deconstructing autonomous driving scenarios focused on richness, transparency, and rarity; 2) A systematic approach to quantify ADS risk scenarios integrating rider behavior; 3) A strategy for optimizing human ADS collaborative decision-making.
+Dr. Xu has conducted high-impact research and published 12 first-author papers in leading transportation journals, including Transportation Research Part C, Transportation Research Part D, and Accident Analysis & Prevention, with an average annual citation rate of approximately 25 citations per paper. He has also received five international research awards, including the Monash Postgraduate Publications Award, the Third Prize in the 2021 IEEE “Shape the Future of ITS” Competition, etc., with acceptance rates ranging from 5% to 30%. 
+Dr. Xu is currently the principal investigator of a State Key Laboratory project focusing on Human-ADS Collaboration in HGVs; serves on the Early-Career Editorial Board of Transportation Environment and Safety (Oxford University Press); and is an active reviewer for 15 internationally recognized journals, including TR_D, TR_F, AAP, IEEE-T-ITS, IEEE-T-IV, etc., with more than 150 reviews completed to date. `
+    }
+};
+
+// 打开成员弹窗
+function openMemberModal(memberId) {
+    const modal = document.getElementById('memberModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalContent = document.getElementById('modalContent');
+    
+    const member = memberData[memberId];
+    if (!member) {
+        console.error('Member data not found for:', memberId);
+        return;
+    }
+    
+    // 设置弹窗标题
+    modalTitle.textContent = 'Dr. Zheng Xu';
+    
+    // 创建弹窗内容
+    modalContent.innerHTML = `
+        <div class="member-detail-full">
+            <div class="member-detail-info">
+                <div class="description">${member.description1}</div>
+                ${member.introImage ? `
+                    <div class="image-container">
+                        <img src="${member.introImage}" alt="Dr. Zheng Xu Introduction" class="member-intro-image">
+                        <div class="image-caption">Fig. Overview of the human-centric approach for ADS testing and safety validation (source: Xu Zheng et al. Transp. Res. C. 181, p.105367.)</div>
+                    </div>
+                ` : ''}
+                <div class="description description-formatted">${member.description2.replace(/Dr\. Xu has conducted/g, '<br><br>Dr. Xu has conducted').replace(/Dr\. Xu is currently/g, '<br><br>Dr. Xu is currently')}</div>
+            </div>
+        </div>
+    `;
+    
+    // 显示弹窗
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden'; // 防止背景滚动
+    
+    // 添加ESC键关闭功能
+    document.addEventListener('keydown', handleModalEscape);
+    
+    // 点击背景关闭弹窗
+    modal.addEventListener('click', handleModalBackgroundClick);
+}
+
+// 关闭成员弹窗
+function closeMemberModal() {
+    const modal = document.getElementById('memberModal');
+    
+    modal.classList.remove('show');
+    document.body.style.overflow = ''; // 恢复背景滚动
+    
+    // 移除事件监听器
+    document.removeEventListener('keydown', handleModalEscape);
+    modal.removeEventListener('click', handleModalBackgroundClick);
+    
+    // 延迟隐藏弹窗，等待动画完成
+    setTimeout(() => {
+        if (!modal.classList.contains('show')) {
+            modal.style.display = 'none';
+        }
+    }, 300);
+}
+
+// 处理ESC键关闭弹窗
+function handleModalEscape(e) {
+    if (e.key === 'Escape') {
+        closeMemberModal();
+    }
+}
+
+// 处理点击背景关闭弹窗
+function handleModalBackgroundClick(e) {
+    const modal = document.getElementById('memberModal');
+    if (e.target === modal) {
+        closeMemberModal();
+    }
+}
+
 // 将函数绑定到全局作用域
 window.openMemberModal = openMemberModal;
 window.closeMemberModal = closeMemberModal;
