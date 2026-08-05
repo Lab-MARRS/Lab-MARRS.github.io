@@ -62,6 +62,19 @@ document.addEventListener('DOMContentLoaded', function() {
     const pages = document.querySelectorAll('.page');
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
+    const pageContentSelector = '.lab-intro, .latest-news, .news-list, .leader-profile, .contact-section, .members-grid, .research-list, .project-list';
+
+    // Hidden pages are not intersecting during the initial load. Some browsers do
+    // not re-run the observer when those pages are later displayed, so always
+    // restore the selected page's content before showing it.
+    function revealPageContent(page) {
+        if (!page) return;
+
+        page.querySelectorAll(pageContentSelector).forEach(element => {
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0)';
+        });
+    }
 
     // 页面切换功能
     function showPage(targetPageId) {
@@ -74,6 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const targetPage = document.getElementById(targetPageId);
         if (targetPage) {
             targetPage.classList.add('active');
+            revealPageContent(targetPage);
         }
         
         // 更新导航链接的激活状态
@@ -193,6 +207,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 添加页面切换时的淡入动画
     function addPageTransitionEffects() {
+        if (!('IntersectionObserver' in window)) {
+            return;
+        }
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -205,9 +223,16 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         // 为所有主要内容元素添加观察器
-        const elementsToAnimate = document.querySelectorAll('.lab-intro, .latest-news, .news-list, .leader-profile, .contact-section, .members-grid, .research-list, .project-list');
+        const elementsToAnimate = document.querySelectorAll(pageContentSelector);
         
         elementsToAnimate.forEach(el => {
+            // Do not make content inside an initially hidden page transparent.
+            // It will be revealed by showPage() when the user navigates to it.
+            const parentPage = el.closest('.page');
+            if (parentPage && !parentPage.classList.contains('active')) {
+                return;
+            }
+
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
