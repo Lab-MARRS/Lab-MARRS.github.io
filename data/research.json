@@ -1,0 +1,408 @@
+[
+  {
+    "id": "traffic-flow-operation-and-control",
+    "title": "Traffic Flow, Resilience & Network Control",
+    "image": "traffic-flow-dynamics",
+    "alt": "Traffic Flow Operation and Control",
+    "description": "Our research connects macroscopic traffic flow theory, macroscopic fundamental diagrams (MFDs) and network science to understand and manage congestion in large urban road networks. We develop perimeter and hierarchical control, coordinated operations and pricing strategies for multimodal and connected transport, with attention to resilience, uncertainty and equitable access.",
+    "tags": [
+      "Traffic flow",
+      "MFD",
+      "Network resilience",
+      "Coordinated control"
+    ],
+    "publications": [
+      {
+        "title": "Mitigating traffic oscillations in mixed traffic flow with scalable deep Koopman predictive control",
+        "authors": "Hao Lyu, Yanyong Guo, Pan Liu, Nan Zheng, Ting Wang, Quansheng Yue",
+        "venue": "Advanced Engineering Informatics, 71(Part A), 104258, 2026",
+        "url": "https://doi.org/10.1016/j.aei.2025.104258"
+      },
+      {
+        "title": "Ramp layout optimization and integrated control for mixed networks of freeways and arterial roads in an intelligent connected vehicle environment",
+        "authors": "Heng Ding, Yuanhao Meng, Nan Zheng, Xiaoyan Zheng, Wenjuan Huang, Chenyang Qin",
+        "venue": "Transportation Research Part C: Emerging Technologies, 176, 105124, 2025",
+        "url": "https://doi.org/10.1016/j.trc.2025.105124"
+      },
+      {
+        "title": "Two-layer control strategy response to regional cyberattacks on large-scale road networks in a connected vehicle environment",
+        "authors": "Liangwen Wang, Heng Ding, Nan Zheng, Xiaoyan Zheng",
+        "venue": "Transportation Research Part C: Emerging Technologies, 174, 105116, 2025",
+        "url": "https://doi.org/10.1016/j.trc.2025.105116"
+      },
+      {
+        "title": "A novel hierarchical perimeter control method for road networks considering boundary congestion in a mixed CAV and HV traffic environment",
+        "authors": "Heng Ding, Liangwen Wang, Nan Zheng, Zeyang Cheng, Xiaoyan Zheng, Jiye Li",
+        "venue": "Transportation Research Part B: Methodological, 195, 103219, 2025",
+        "url": "https://doi.org/10.1016/j.trb.2025.103219"
+      },
+      {
+        "title": "Percolation-based dynamic perimeter control for mitigating congestion propagation in urban road networks",
+        "authors": "Homayoun Hamedmoghadam, Nan Zheng, Daqing Li, Hai L. Vu",
+        "venue": "Transportation Research Part C: Emerging Technologies, 145, 103922, 2022",
+        "url": "https://doi.org/10.1016/j.trc.2022.103922"
+      },
+      {
+        "title": "Dynamic dispatch of connected taxis for large-scale urban road networks with stochastic demands: An MFD-enabled hierarchical and cooperative approach",
+        "authors": "Heng Ding, Jiye Li, Nan Zheng, Xiaoyan Zheng, Wenjuan Huang, Haijian Bai",
+        "venue": "Transportation Research Part C: Emerging Technologies, 142, 103792, 2022",
+        "url": "https://doi.org/10.1016/j.trc.2022.103792"
+      },
+      {
+        "title": "Resilient perimeter control for hyper-congested two-region networks with MFD dynamics",
+        "authors": "Shengling Gao, Daqing Li, Nan Zheng, Ruiqi Hu, Zhikun She",
+        "venue": "Transportation Research Part B: Methodological, 156, 50–75, 2022",
+        "url": "https://doi.org/10.1016/j.trb.2021.12.003"
+      },
+      {
+        "title": "Area-based equitable pricing strategies for multimodal urban networks with heterogeneous users",
+        "authors": "Nan Zheng, Nikolas Geroliminis",
+        "venue": "Transportation Research Part A: Policy and Practice, 136, 357–374, 2020",
+        "url": "https://doi.org/10.1016/j.tra.2020.04.009"
+      },
+      {
+        "title": "Modeling and optimization of multimodal urban networks with limited parking and dynamic pricing",
+        "authors": "Nan Zheng, Nikolas Geroliminis",
+        "venue": "Transportation Research Part B: Methodological, 83, 36–58, 2016",
+        "url": "https://doi.org/10.1016/j.trb.2015.10.008"
+      },
+      {
+        "title": "Time-dependent area-based pricing for multimodal systems with heterogeneous users in an agent-based environment",
+        "authors": "Nan Zheng, Guillaume Rérat, Nikolas Geroliminis",
+        "venue": "Transportation Research Part C: Emerging Technologies, 62, 133–148, 2016",
+        "url": "https://doi.org/10.1016/j.trc.2015.10.015"
+      },
+      {
+        "title": "A dynamic cordon pricing scheme combining the macroscopic fundamental diagram and an agent-based traffic model",
+        "authors": "Nan Zheng, Rashid A. Waraich, Kay W. Axhausen, Nikolas Geroliminis",
+        "venue": "Transportation Research Part A: Policy and Practice, 46(8), 1291–1303, 2012",
+        "url": "https://doi.org/10.1016/j.tra.2012.05.006"
+      }
+    ]
+  },
+  {
+    "id": "robotics-autonomous-systems",
+    "title": "Robotics & Autonomous Systems",
+    "image": "autonomous-vehicles",
+    "alt": "Robotics & Autonomous Systems",
+    "description": "We study autonomous vehicles and robotic transport systems, from motion and trajectory planning to robust control, high-fidelity simulation and human–vehicle interaction. Our work supports coordinated vehicles in complex road and off-road environments, including autonomous haulage, and evaluates safety, operational performance and the experience of road users.",
+    "tags": [
+      "Autonomous vehicles",
+      "Trajectory planning",
+      "Human–vehicle interaction",
+      "Safety validation"
+    ],
+    "publications": [
+      {
+        "title": "Robust Path-Tracking Control of Networked Autonomous Vehicles for Multiple Source Uncertainties",
+        "authors": "Wenqiang Zhao, Hongqian Wei, Chen Lin, Nan Zheng, Youtong Zhang",
+        "venue": "IEEE Transactions on Vehicular Technology, 75(6), 9157–9170, 2026",
+        "url": "https://doi.org/10.1109/tvt.2025.3640206"
+      },
+      {
+        "title": "A multi-level framework for collaborative vehicle trajectory planning in unstructured road environments",
+        "authors": "Ji Zhou, Biao Xu, Yougang Bian, Hongmao Qin, Chen Wang, Nan Zheng",
+        "venue": "Transportmetrica B: Transport Dynamics, 14(1), 2659893, 2026",
+        "url": "https://doi.org/10.1080/21680566.2026.2659893"
+      },
+      {
+        "title": "Post-interactive multimodal trajectory prediction for autonomous driving",
+        "authors": "Ziyi Huang, Yang Li, Dushuai Li, Yao Mu, Hongmao Qin, Nan Zheng",
+        "venue": "Transportation Research Part C: Emerging Technologies, 179, 105271, 2025",
+        "url": "https://doi.org/10.1016/j.trc.2025.105271"
+      },
+      {
+        "title": "Analyzing riders’ behavioral adaptation to driving patterns of advanced autonomous vehicles: A virtual reality simulation study",
+        "authors": "Zheng Xu, Tanghan Jiang, Dong Xiao, Yihai Fang, Nan Zheng",
+        "venue": "International Journal of Human–Computer Interaction, 41(12), 7273–7291, 2025",
+        "url": "https://doi.org/10.1080/10447318.2024.2392069"
+      },
+      {
+        "title": "Safety validation for connected autonomous vehicles using large-scale testing tracks in high-fidelity simulation environment",
+        "authors": "Zheng Xu, Xiaomeng Wang, Xuesong Wang, Nan Zheng",
+        "venue": "Accident Analysis & Prevention, 215, 108011, 2025",
+        "url": "https://doi.org/10.1016/j.aap.2025.108011"
+      },
+      {
+        "title": "Time-dependent effect of advanced driver assistance systems on driver behavior based on connected vehicle data",
+        "authors": "Yuzhi Chen, Yuanchang Xie, Chen Wang, Liguo Yang, Nan Zheng, Lan Wu",
+        "venue": "Analytic Methods in Accident Research, 45, 100370, 2025",
+        "url": "https://doi.org/10.1016/j.amar.2025.100370"
+      },
+      {
+        "title": "String stability under general topologies for CAVs: A coupled sliding surface-based distributed TMPC approach",
+        "authors": "Xuan Wang, Hongmao Qin, Yougang Bian, Dezong Zhao, Nan Zheng",
+        "venue": "Transportation Research Part E: Logistics and Transportation Review, 194, 103937, 2025",
+        "url": "https://doi.org/10.1016/j.tre.2024.103937"
+      },
+      {
+        "title": "Real-time model predictive control of path-following for autonomous vehicles towards model mismatch and uncertainty",
+        "authors": "Wenqiang Zhao, Hongqian Wei, Qiang Ai, Nan Zheng, Chen Lin, Youtong Zhang",
+        "venue": "Control Engineering Practice, 153, 106126, 2024",
+        "url": "https://doi.org/10.1016/j.conengprac.2024.106126"
+      },
+      {
+        "title": "Investigating the Impact of Automated Vehicles on the Safety and Operation of Low‐Speed Urban Networks",
+        "authors": "Amir Hossein Karbasi, Nan Zheng, Steve O’Hern",
+        "venue": "Journal of Advanced Transportation, 2024(1), 3835831, 2024",
+        "url": "https://doi.org/10.1155/2024/3835831"
+      },
+      {
+        "title": "Integrating connected autonomous shuttle buses as an alternative for public transport – A simulation-based study",
+        "authors": "Zheng Xu, Nan Zheng",
+        "venue": "Multimodal Transportation, 3(2), 100133, 2024",
+        "url": "https://doi.org/10.1016/j.multra.2024.100133"
+      },
+      {
+        "title": "Analyzing scenario criticality and rider’s intervention behavior during high-level autonomous driving: A VR-enabled approach and empirical insights",
+        "authors": "Zheng Xu, Nan Zheng, Yisheng Lv, Yihai Fang, Hai L. Vu",
+        "venue": "Transportation Research Part C: Emerging Technologies, 158, 104451, 2024",
+        "url": "https://doi.org/10.1016/j.trc.2023.104451"
+      },
+      {
+        "title": "Infrastructure requirement for autonomous vehicle integration for future urban and suburban roads – Current practice and a case study of Melbourne, Australia",
+        "authors": "Hesavar Manivasakan, Riddhi Kalra, Steve O'Hern, Yihai Fang, Yinfei Xi, Nan Zheng",
+        "venue": "Transportation Research Part A: Policy and Practice, 152, 36–53, 2021",
+        "url": "https://doi.org/10.1016/j.tra.2021.07.012"
+      }
+    ]
+  },
+  {
+    "id": "emergency-response",
+    "title": "Emergency & Disaster Response",
+    "image": "emergency-response",
+    "alt": "Emergency response applications across transport, infrastructure and remote environments",
+    "description": "We build on our foundations in resilient transport networks, urban traffic coordination, autonomous vehicles and UAVs, and intelligent systems and algorithms to explore emergency and disaster response. We consider how urban infrastructure and coordinated traffic management can maintain essential access during disruption, how emergency services can be planned across complex urban environments, and how autonomous ground vehicles and UAVs can support inspection, situational awareness and response in remote mountain and bushfire settings.",
+    "tags": [
+      "Resilient networks",
+      "Emergency service planning",
+      "Coordinated traffic",
+      "Autonomous response"
+    ],
+    "publications": [
+      {
+        "title": "A Unified Optimization Approach for Surveillance and Delivery Tasks by Unmanned Vehicles in Emergency Response",
+        "authors": "Ji Zhou, Yuanda Wang, Wei Xu, Xuekai Cen, Nan Zheng",
+        "venue": "30th International Conference of Hong Kong Society for Transportation Studies, Hong Kong, 14–15 December 2026 (upcoming conference)",
+        "type": "conference",
+        "url": "https://www.hksts.org/en/conference/30th_conference/",
+        "linkLabel": "Conference website"
+      },
+      {
+        "title": "Robust Path-Tracking Control of Networked Autonomous Vehicles for Multiple Source Uncertainties",
+        "authors": "Wenqiang Zhao, Hongqian Wei, Chen Lin, Nan Zheng, Youtong Zhang",
+        "venue": "IEEE Transactions on Vehicular Technology, 75(6), 9157–9170, 2026",
+        "url": "https://doi.org/10.1109/tvt.2025.3640206"
+      },
+      {
+        "title": "A novel hierarchical perimeter control method for road networks considering boundary congestion in a mixed CAV and HV traffic environment",
+        "authors": "Heng Ding, Liangwen Wang, Nan Zheng, Zeyang Cheng, Xiaoyan Zheng, Jiye Li",
+        "venue": "Transportation Research Part B: Methodological, 195, 103219, 2025",
+        "url": "https://doi.org/10.1016/j.trb.2025.103219"
+      },
+      {
+        "title": "Performance evaluation of struck-by-accident alert systems for road work zone safety",
+        "authors": "Qishen Ye, Yihai Fang, Nan Zheng",
+        "venue": "Automation in Construction, 168, 105837, 2024",
+        "url": "https://doi.org/10.1016/j.autcon.2024.105837"
+      },
+      {
+        "title": "Bimodal Traffic Evacuation Management for Road Tunnels Considering Social Fairness: CTM-Based Model",
+        "authors": "Ruyang Yin, Nan Zheng, Zhen Zhou",
+        "venue": "Journal of Transportation Engineering, Part A: Systems, 149(7), 04023058, 2023",
+        "url": "https://doi.org/10.1061/JTEPBS.TEENG-7899"
+      },
+      {
+        "title": "Resilient perimeter control for hyper-congested two-region networks with MFD dynamics",
+        "authors": "Shengling Gao, Daqing Li, Nan Zheng, Ruiqi Hu, Zhikun She",
+        "venue": "Transportation Research Part B: Methodological, 156, 50–75, 2022",
+        "url": "https://doi.org/10.1016/j.trb.2021.12.003"
+      }
+    ]
+  },
+  {
+    "id": "low-altitude-logistics",
+    "title": "Low-Altitude Logistics & Future Services",
+    "image": "low-altitude-logistics",
+    "alt": "Low-altitude logistics connecting drones, road vehicles and communities",
+    "description": "We investigate future logistics services that integrate drones, road vehicles and local infrastructure. Our work connects infrastructure planning, operations research for routing and scheduling, and service evaluation that accounts for the built environment, geography and population distribution. We examine cost, responsiveness, community impacts and spatial equity, alongside policy and governance, with the aim of improving access for rural and remote residents and supporting community-led services for Aboriginal and Torres Strait Islander peoples.",
+    "tags": [
+      "Infrastructure planning",
+      "Routing and scheduling",
+      "Service evaluation",
+      "Spatial equity",
+      "Policy and governance"
+    ],
+    "publications": [
+      {
+        "title": "Sustainable Design of Smart Multimodal Urban Logistics in the Era of AI and Low-Altitude Economy",
+        "authors": "Hui Fu, Hongpeng Li, Youbin Chen, Jiahong Zhao, Zhixuan Wu, Zhenqi Liang, Nan Zheng",
+        "venue": "Design for Augmented Humanity, 1(1), 67–82, 2026",
+        "url": "https://doi.org/10.1177/29776481261427592"
+      },
+      {
+        "title": "Multi-perspective evaluation of human factors in advanced low-altitude transportation adoption: a virtual reality simulation study",
+        "authors": "Zheng Xu, Jun Hua, Guangquan Lu, Nan Zheng",
+        "venue": "Journal of Air Transport Management, 132, 102948, 2026",
+        "url": "https://doi.org/10.1016/j.jairtraman.2025.102948"
+      },
+      {
+        "title": "Spatially Selective Drone Delivery in Low-altitude Logistics: Built Environment Effects on Operational Costs, Responsiveness, Community Exposure and Equity",
+        "authors": "Ji Zhou, Yinfei Xi, Yunlong Tang, Hui Fu, Nan Zheng",
+        "venue": "SSRN, posted 6 August 2026",
+        "url": "https://doi.org/10.2139/ssrn.7240038",
+        "type": "preprint"
+      },
+      {
+        "title": "Area-based equitable pricing strategies for multimodal urban networks with heterogeneous users",
+        "authors": "Nan Zheng, Nikolas Geroliminis",
+        "venue": "Transportation Research Part A: Policy and Practice, 136, 357–374, 2020",
+        "url": "https://doi.org/10.1016/j.tra.2020.04.009"
+      }
+    ]
+  },
+  {
+    "id": "machine-learning-artificial-intelligence",
+    "title": "Machine Learning & Artificial Intelligence",
+    "image": "transport-algorithms",
+    "alt": "Machine Learning & Artificial Intelligence",
+    "description": "We develop data-driven and agentic AI methods for transport planning and operations. Our work combines large language models, reinforcement learning, robust optimisation and predictive control to support route choice, vehicle coordination and service dispatch under uncertain demand and travel conditions.",
+    "tags": [
+      "Agentic AI",
+      "Reinforcement learning",
+      "Operations research",
+      "Predictive control"
+    ],
+    "publications": [
+      {
+        "title": "Agentic Large Language Models for day-to-day route choices",
+        "authors": "Leizhen Wang, Peibo Duan, Zhengbing He, Cheng Lyu, Xin Chen, Nan Zheng, Li Yao, Zhenliang Ma",
+        "venue": "Transportation Research Part C: Emerging Technologies, 180, 105307, 2025",
+        "url": "https://doi.org/10.1016/j.trc.2025.105307"
+      },
+      {
+        "title": "Mitigating traffic oscillations in mixed traffic flow with scalable deep Koopman predictive control",
+        "authors": "Hao Lyu, Yanyong Guo, Pan Liu, Nan Zheng, Ting Wang, Quansheng Yue",
+        "venue": "Advanced Engineering Informatics, 71(Part A), 104258, 2026",
+        "url": "https://doi.org/10.1016/j.aei.2025.104258"
+      },
+      {
+        "title": "Data-driven optimization for ride-sourcing vehicle dispatching and relocation under demand and travel time uncertainty",
+        "authors": "Yunping Huang, Nan Zheng, Zheng Huang, Enming Liang, Shu-Chien Hsu, Renxin Zhong",
+        "venue": "Transportation Research Part C: Emerging Technologies, 178, 105217, 2025",
+        "url": "https://doi.org/10.1016/j.trc.2025.105217"
+      },
+      {
+        "title": "Bi-objective robust nonlinear decision approach for en-route bus speed control considering implementation errors and traffic uncertainties",
+        "authors": "Pengjie Liu, Liang Zheng, Nan Zheng",
+        "venue": "Transportation Research Part C: Emerging Technologies, 169, 104870, 2024",
+        "url": "https://doi.org/10.1016/j.trc.2024.104870"
+      },
+      {
+        "title": "Coordinated optimization of signal timing for intersections with dynamic shared through- and right-turn lanes",
+        "authors": "Zhe Zheng, Jian Yuan, Kun An, Nan Zheng, Wanjing Ma",
+        "venue": "Journal of Intelligent and Connected Vehicles, 7(3), 219–228, 2024",
+        "url": "https://doi.org/10.26599/jicv.2023.9210038"
+      },
+      {
+        "title": "A novel parallel computing framework for traffic assignment problem: Integrating alternating direction method of multipliers with Jacobi over relaxation method",
+        "authors": "Zhiyuan Liu, Yu Dong, Honggang Zhang, Nan Zheng, Kai Huang",
+        "venue": "Transportation Research Part E: Logistics and Transportation Review, 189, 103687, 2024",
+        "url": "https://doi.org/10.1016/j.tre.2024.103687"
+      },
+      {
+        "title": "A deep reinforcement learning based distributed control strategy for connected automated vehicles in mixed traffic platoon",
+        "authors": "Haotian Shi, Danjue Chen, Nan Zheng, Xin Wang, Yang Zhou, Bin Ran",
+        "venue": "Transportation Research Part C: Emerging Technologies, 148, 104019, 2023",
+        "url": "https://doi.org/10.1016/j.trc.2023.104019"
+      },
+      {
+        "title": "A simulation-based model for continuous network design problem using Bayesian optimization",
+        "authors": "Ruyang Yin, Zhiyuan Liu, Nan Zheng",
+        "venue": "IEEE Transactions on Intelligent Transportation Systems, 23(11), 20352–20367, 2022",
+        "url": "https://doi.org/10.1109/tits.2022.3176918"
+      },
+      {
+        "title": "Reconstructing vehicle trajectories on freeways based on motion detection data of connected and automated vehicles",
+        "authors": "Peng Chen, Tong Wang, Nan Zheng",
+        "venue": "Journal of Intelligent Transportation Systems, 26(6), 639–654, 2022",
+        "url": "https://doi.org/10.1080/15472450.2021.1955211"
+      },
+      {
+        "title": "Improved dynamic time warping algorithm for bus route trajectory curve fitting",
+        "authors": "Yinfei Xi, Di Huang, Yu Yuan, Zhiyuan Liu, Khadka Anish, Nan Zheng",
+        "venue": "Journal of Transportation Engineering, Part A: Systems, 147(8), 04021044, 2021",
+        "url": "https://doi.org/10.1061/jtepbs.0000544"
+      }
+    ]
+  },
+  {
+    "id": "data-science-analytics",
+    "title": "Data Science & Analytics",
+    "image": "data-science-analytics",
+    "alt": "Data Science & Analytics",
+    "description": "We analyse transport and safety data to support evidence-based decisions. Our work includes crash modelling with imbalanced data, the effects of built environment and traffic conditions, road work zone safety, and simulation-based evaluation. Statistical learning, interpretable models and virtual reality help connect system performance with human behaviour.",
+    "tags": [
+      "Safety analytics",
+      "Built environment",
+      "Statistical learning",
+      "Simulation"
+    ],
+    "publications": [
+      {
+        "title": "Prediction and interpretation of crash severity using machine learning based on imbalanced traffic crash data",
+        "authors": "Junlan Chen, Pei Liu, Shuo Wang, Nan Zheng, Xiucheng Guo",
+        "venue": "Journal of Safety Research, 93, 185–199, 2025",
+        "url": "https://doi.org/10.1016/j.jsr.2025.02.018"
+      },
+      {
+        "title": "Estimating safety benefit of in-vehicle work zone safety technology alerts: A counterfactual Monte-Carlo simulation approach",
+        "authors": "Qishen Ye, Yihai Fang, Nan Zheng",
+        "venue": "Accident Analysis & Prevention, 215, 108014, 2025",
+        "url": "https://doi.org/10.1016/j.aap.2025.108014"
+      },
+      {
+        "title": "Does built environment have impact on traffic congestion?—A bootstrap mediation analysis on a case study of Melbourne",
+        "authors": "Dong Xiao, Inhi Kim, Nan Zheng",
+        "venue": "Transportation Research Part A: Policy and Practice, 190, 104297, 2024",
+        "url": "https://doi.org/10.1016/j.tra.2024.104297"
+      },
+      {
+        "title": "Performance evaluation of struck-by-accident alert systems for road work zone safety",
+        "authors": "Qishen Ye, Yihai Fang, Nan Zheng",
+        "venue": "Automation in Construction, 168, 105837, 2024",
+        "url": "https://doi.org/10.1016/j.autcon.2024.105837"
+      },
+      {
+        "title": "Understanding construction workers’ cognitive processes under risky scenarios through electroencephalography",
+        "authors": "Tanghan Jiang, Yihai Fang, Nan Zheng, Jiayu Chen",
+        "venue": "Automation in Construction, 166, 105674, 2024",
+        "url": "https://doi.org/10.1016/j.autcon.2024.105674"
+      },
+      {
+        "title": "Investigating built environment and traffic flow impact on crash frequency in urban road networks",
+        "authors": "Dong Xiao, Hongliang Ding, N. N. Sze, Nan Zheng",
+        "venue": "Accident Analysis & Prevention, 201, 107561, 2024",
+        "url": "https://doi.org/10.1016/j.aap.2024.107561"
+      },
+      {
+        "title": "A novel generative adversarial network for improving crash severity modeling with imbalanced data",
+        "authors": "Junlan Chen, Ziyuan Pu, Nan Zheng, Xiao Wen, Hongliang Ding, Xiucheng Guo",
+        "venue": "Transportation Research Part C: Emerging Technologies, 164, 104642, 2024",
+        "url": "https://doi.org/10.1016/j.trc.2024.104642"
+      },
+      {
+        "title": "Assessing bicycle-vehicle conflicts at urban intersections utilizing a VR integrated simulation approach",
+        "authors": "Zheng Xu, Nan Zheng, David B. Logan, Hai L. Vu",
+        "venue": "Accident Analysis & Prevention, 191, 107194, 2023",
+        "url": "https://doi.org/10.1016/j.aap.2023.107194"
+      },
+      {
+        "title": "Simulation-based analysis of second-best multimodal network capacity",
+        "authors": "Ruyang Yin, Xin Liu, Nan Zheng, Zhiyuan Liu",
+        "venue": "Transportation Research Part C: Emerging Technologies, 145, 103925, 2022",
+        "url": "https://doi.org/10.1016/j.trc.2022.103925"
+      }
+    ]
+  }
+]

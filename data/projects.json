@@ -1,0 +1,86 @@
+[
+  {
+    "id": "transbrainx",
+    "title": "TransBrainX – A novel agentic transport foundation model",
+    "image": "transbrainx",
+    "alt": "TransBrainX agentic transport foundation model architecture",
+    "description": "The research project brings transport knowledge and agentic AI together to support future transport-system analysis, planning and operations, with attention to system resilience.",
+    "status": "active",
+    "statusLabel": "Ongoing",
+    "funding": "A$578k",
+    "partners": "MARRS · JITRI · TRIP · NJPK",
+    "duration": "2027–2029"
+  },
+  {
+    "id": "autonomous-driving-key-technology-and-control-platform-for-operating-open-pit-mine-trucks",
+    "title": "Autonomous Driving Key Technology and Control Platform for Operating Open-pit Mine Trucks",
+    "image": "autonomous-mine-trucks",
+    "alt": "Autonomous Driving Key Technology and Control Platform for Operating Open-pit Mine Trucks",
+    "description": "Research on autonomous driving technologies and a control platform for open-pit mine truck operations.",
+    "status": "active",
+    "statusLabel": "Ongoing",
+    "funding": "A$490k",
+    "partners": "Funded by JITRI & Monash University",
+    "duration": "2025–2028"
+  },
+  {
+    "id": "remote-control-training-platform-and-program-development-for-autonomous-driving-trucks",
+    "title": "Remote Control Training Platform and Program Development for Autonomous Driving Trucks",
+    "image": "remote-truck-training",
+    "alt": "Remote Control Training Platform and Program Development for Autonomous Driving Trucks",
+    "description": "Development of a remote-control training platform and training programme for autonomous trucks.",
+    "status": "active",
+    "statusLabel": "Ongoing",
+    "funding": "A$182k",
+    "partners": "Funded by WIIRI",
+    "duration": "2024–2026"
+  },
+  {
+    "id": "hierarchical-control-for-multi-structure-large-scale-urban-road-networks-using-network-science",
+    "title": "Hierarchical Control for Multi-structure Large-scale Urban Road Networks using Network Science",
+    "image": "urban-road-network-control",
+    "alt": "Hierarchical Control for Multi-structure Large-scale Urban Road Networks using Network Science",
+    "description": "Network-science methods for hierarchical control across large urban road networks with multiple structures.",
+    "status": "active",
+    "statusLabel": "Ongoing",
+    "funding": "A$160k",
+    "partners": "Funded by NSF-China",
+    "duration": "2025–2027"
+  },
+  {
+    "id": "platform-technologies-and-service-solutions-for-autonomous-vehicles-for-touristic-shuttle-buses",
+    "title": "Platform, Technologies and Service Solutions for Autonomous Vehicles for Touristic Shuttle Buses",
+    "image": "autonomous-shuttle-buses",
+    "alt": "Platform, Technologies and Service Solutions for Autonomous Vehicles for Touristic Shuttle Buses",
+    "description": "Autonomous vehicle platforms, enabling technologies and service solutions for tourism shuttle bus operations.",
+    "status": "completed",
+    "statusLabel": "Completed",
+    "funding": "A$921k",
+    "partners": "Funded by JITRI & Monash University",
+    "duration": "2018–2022"
+  },
+  {
+    "id": "macroscopic-approaches-for-monitoring-and-managing-traffic-congestion-in-multimodal-road-networks",
+    "title": "Macroscopic Approaches for Monitoring and Managing Traffic Congestion in Multimodal Road Networks",
+    "image": "multimodal-traffic-congestion",
+    "alt": "Macroscopic Approaches for Monitoring and Managing Traffic Congestion in Multimodal Road Networks",
+    "description": "Macroscopic methods to monitor and manage congestion across multimodal road networks.",
+    "status": "completed",
+    "statusLabel": "Completed",
+    "funding": "A$145k",
+    "partners": "Funded by NSF-China",
+    "duration": "2017–2019"
+  },
+  {
+    "id": "traffic-control-for-large-scale-signalised-road-networks-of-connected-vehicles-and-demand-uncertainties",
+    "title": "Traffic Control for Large-scale Signalised Road Networks of Connected Vehicles and Demand Uncertainties",
+    "image": "signalised-road-network-control",
+    "alt": "Traffic Control for Large-scale Signalised Road Networks of Connected Vehicles and Demand Uncertainties",
+    "description": "Large-scale signalised network control accounting for connected vehicles and uncertain travel demand.",
+    "status": "completed",
+    "statusLabel": "Completed",
+    "funding": "A$160k",
+    "partners": "Funded by NSF-China",
+    "duration": "2017–2020"
+  }
+]
