@@ -1,0 +1,248 @@
+/* MARRS Lab: original purple identity with responsive, accessible layouts. */
+:root {
+    --ink: #2d3748;
+    --text: #4a5568;
+    --muted: #718096;
+    --accent: #5a67d8;
+    --accent-soft: #eef0ff;
+    --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --surface: #ffffff;
+    --background: #f8fafc;
+    --border: #e2e8f0;
+    --radius: 12px;
+    --shadow: 0 4px 15px rgb(0 0 0 / 10%);
+    --nav-height: 70px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
+body { margin: 0; color: #333; background: var(--background); font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; }
+h1, h2, h3, h4, p { margin-top: 0; }
+h1, h2, h3, h4 { color: var(--ink); line-height: 1.3; }
+h1 { font-size: 2.5rem; font-weight: 700; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.2rem; }
+p { margin-bottom: 1.5rem; color: var(--text); }
+a { color: var(--accent); text-underline-offset: 0.2em; }
+button { font: inherit; cursor: pointer; }
+button, a { -webkit-tap-highlight-color: transparent; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+[hidden] { display: none !important; }
+img { display: block; max-width: 100%; height: auto; }
+picture { display: block; }
+.container { width: min(100% - 40px, 1200px); margin-inline: auto; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.skip-link { position: fixed; z-index: 1100; left: 1rem; top: -5rem; padding: 0.7rem 1rem; border-radius: 6px; background: white; color: var(--accent); }
+.skip-link:focus { top: 0.8rem; }
+
+/* Both institution and lab logos keep their complete wordmarks. */
+.navbar { position: sticky; top: 0; z-index: 1000; background: var(--gradient); box-shadow: 0 2px 10px rgb(0 0 0 / 10%); }
+.navbar.scrolled { box-shadow: 0 2px 20px rgb(0 0 0 / 15%); }
+.nav-container { width: min(100% - 40px, 1200px); min-height: var(--nav-height); margin-inline: auto; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.nav-logo { display: flex; align-items: center; gap: 0.75rem; color: white; text-decoration: none; flex-shrink: 0; }
+.nav-logo-img, .monash-logo-img, .marrs-logo-img { flex-shrink: 0; object-fit: contain; }
+.monash-logo-img { width: 110px; height: 50px; }
+.marrs-logo-img { width: 160px; height: 60px; }
+.nav-logo-img img, .monash-logo-img img, .marrs-logo-img img { width: 100%; height: 100%; object-fit: contain; }
+.nav-logo h2 { margin: 0; color: white; font-size: 1.5rem; font-weight: 600; white-space: nowrap; }
+.nav-menu { display: flex; align-items: center; gap: 0.5rem; list-style: none; padding: 0; margin: 0; }
+.nav-link { display: flex; align-items: center; min-height: 44px; padding: 0.5rem 0.75rem; border-radius: 8px; color: rgb(255 255 255 / 90%); font-weight: 500; text-decoration: none; transition: background 200ms ease; }
+.nav-link:hover, .nav-link.active { color: white; background: rgb(255 255 255 / 20%); }
+.navbar a:focus-visible, .navbar button:focus-visible { outline-color: #ffe293; }
+.hamburger { display: none; justify-content: center; align-items: center; flex-direction: column; gap: 5px; min-width: 44px; min-height: 44px; padding: 8px; border: 1px solid rgb(255 255 255 / 40%); border-radius: 6px; background: transparent; }
+.bar { width: 24px; height: 2px; background: white; border-radius: 2px; transition: transform 200ms ease, opacity 200ms ease; }
+.hamburger.active .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.active .bar:nth-child(2) { opacity: 0; }
+.hamburger.active .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* With JavaScript disabled, all pages and publications remain readable. */
+.main-content { min-height: calc(100vh - var(--nav-height)); }
+.page { padding-block: 3rem; scroll-margin-top: 6rem; }
+.js .page { display: none; }
+.js .page.active { display: block; }
+.page h1 { margin-bottom: 2rem; text-align: center; }
+.section-title { margin-top: 3rem; margin-bottom: 2rem; text-align: center; font-size: 2rem; }
+.section-intro { max-width: 52rem; margin: -0.5rem auto 2rem; text-align: center; }
+.section-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem; }
+.section-header h2 { margin: 0; font-size: 2rem; }
+.button-link { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0.5rem 1rem; border: 1px solid var(--accent); border-radius: 6px; font-size: 0.9rem; font-weight: 500; text-decoration: none; }
+.button-link:hover { background: var(--accent-soft); }
+
+/* Automatic photographs; arrow controls appear only during interaction. */
+.lab-intro { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem; align-items: center; margin-bottom: 4rem; }
+.lab-text h1 { text-align: left; margin-bottom: 1.5rem; }
+.lab-text p { font-size: 1.1rem; text-align: justify; }
+.lab-image-carousel { position: relative; width: 100%; height: 400px; overflow: hidden; border-radius: var(--radius); background: #f0f3f7; box-shadow: 0 10px 30px rgb(0 0 0 / 10%); touch-action: pan-y; }
+.carousel-container, .carousel-slides { position: relative; width: 100%; height: 100%; }
+.carousel-slide { position: absolute; inset: 0; visibility: hidden; opacity: 0; transition: opacity 500ms ease; }
+.carousel-slide.active { visibility: visible; opacity: 1; }
+.carousel-slide picture, .carousel-slide img { width: 100%; height: 100%; }
+.carousel-slide img { object-fit: contain; object-position: center; }
+.carousel-btn { display: none; }
+.js .carousel-btn { position: absolute; top: 50%; z-index: 2; display: grid; place-items: center; width: 50px; height: 50px; transform: translateY(-50%); border: none; border-radius: 50%; background: rgb(255 255 255 / 90%); color: var(--ink); font-size: 18px; opacity: 0; pointer-events: none; transition: opacity 200ms ease, background 200ms ease; }
+.js .lab-image-carousel:focus-within .carousel-btn, .js .lab-image-carousel.controls-visible .carousel-btn { opacity: 1; pointer-events: auto; }
+.carousel-btn:hover { background: white; }
+.carousel-btn.prev { left: 15px; }
+.carousel-btn.next { right: 15px; }
+@media (hover: hover) { .js .lab-image-carousel:hover .carousel-btn { opacity: 1; pointer-events: auto; } }
+
+/* Original card spacing, with flexible columns to prevent overflow. */
+.latest-news { margin-top: 4rem; }
+.news-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; }
+.news-item, .member-card, .news-item-full, .research-item, .project-item, .leader-profile, .contact-section { min-width: 0; background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); }
+.news-item { display: flex; flex-direction: column; overflow: hidden; }
+.news-list, .research-list, .project-list { max-width: 1000px; margin-inline: auto; }
+.news-item-full, .research-item, .project-item { display: grid; grid-template-columns: minmax(0, 400px) minmax(0, 1fr); align-items: start; gap: 2rem; padding: 2rem; margin-bottom: 2rem; scroll-margin-top: 6rem; }
+.news-item-full:last-child, .research-item:last-child, .project-item:last-child { margin-bottom: 0; }
+.news-image, .research-image, .project-image { width: 100%; height: 280px; overflow: hidden; border-radius: 8px; background: #f8fafc; }
+.news-image img, .research-image img, .project-image img { width: 100%; height: 100%; object-fit: cover; }
+.news-item .news-image, .news-item > img { width: 100%; height: 250px; border-radius: 0; object-fit: cover; }
+.news-item-full > img, .research-item > img, .project-item > img { width: 100%; height: 280px; object-fit: cover; border-radius: 8px; }
+.research-image img, .project-image img, .research-item > img, .project-item > img, .image-contain img, img.image-contain { object-fit: contain; }
+.news-content, .research-content, .project-content { min-width: 0; overflow-wrap: anywhere; }
+.news-item .news-content { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+.news-content h2, .research-content h2, .project-content h2 { font-size: 1.5rem; margin-bottom: 1rem; }
+.news-content h3 { margin-bottom: 0.5rem; font-weight: 600; }
+.news-content h3 a { color: var(--ink); text-decoration: none; }
+.news-content h3 a:hover { color: var(--accent); text-decoration: underline; }
+.news-item .news-content p { font-size: 0.95rem; margin-bottom: 1rem; }
+.news-date { display: block; margin-bottom: 0.65rem; color: var(--muted); font-size: 0.85rem; font-style: italic; }
+.news-item .news-link { margin-top: auto; }
+.news-link { display: inline-flex; align-items: center; min-height: 44px; margin-top: 0.45rem; font-size: 0.9rem; font-weight: 500; text-decoration: none; }
+.news-link:hover { text-decoration: underline; }
+.news-source, .news-sources { margin-top: 1rem; font-size: 0.85rem; }
+
+/* Director and three-column team cards with round portraits. */
+.leader-profile { display: grid; grid-template-columns: 300px minmax(0, 1fr); align-items: center; gap: 3rem; padding: 2rem; margin-bottom: 3rem; }
+.leader-image { width: 300px; max-width: 100%; height: 400px; overflow: hidden; margin-inline: auto; border-radius: var(--radius); box-shadow: var(--shadow); }
+.leader-image picture, .leader-image img { width: 100%; height: 100%; }
+.leader-image img { object-fit: cover; object-position: center top; }
+.leader-info { min-width: 0; text-align: center; overflow-wrap: anywhere; }
+.leader-info h2 { margin-bottom: 0.5rem; font-size: 2rem; }
+.leader-info h3 { margin-bottom: 1.5rem; color: var(--accent); font-size: 1.2rem; font-weight: 500; }
+.leader-info p { text-align: justify; }
+.contact-section { padding: 2rem; }
+.contact-section h2 { margin-bottom: 1.5rem; text-align: center; }
+.contact-links { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+.contact-link { display: flex; align-items: center; gap: 0.75rem; min-width: 0; padding: 1rem; border-radius: 8px; color: white; background: var(--gradient); font-weight: 500; font-size: 0.95rem; text-decoration: none; overflow-wrap: anywhere; }
+.contact-link:hover { filter: brightness(1.05); }
+.contact-link i { flex-shrink: 0; font-size: 1.2rem; }
+.members-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; }
+.member-card { display: flex; flex-direction: column; align-items: center; padding: 2rem 1.5rem 1.5rem; color: inherit; text-decoration: none; text-align: center; }
+a.member-card:hover .member-info h3 { color: var(--accent); }
+.member-image, .member-card > picture, .member-card > img { width: 150px; height: 150px; flex-shrink: 0; overflow: hidden; border-radius: 50%; object-fit: cover; object-position: center 30%; background: #eef0f5; }
+.member-image img, .member-card > picture img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; object-position: center 30%; }
+.member-info { display: flex; flex: 1; flex-direction: column; align-items: center; width: 100%; padding-top: 1.5rem; }
+.member-info h3 { margin-bottom: 0.5rem; font-size: 1.3rem; font-weight: 600; }
+.member-role { margin-bottom: 0.5rem; color: var(--accent); font-size: 0.9rem; font-weight: 500; }
+.research-direction { margin-bottom: 0.5rem; font-size: 0.9rem; }
+.member-card.pos-top img { object-position: center top; }
+.member-card.pos-bottom img { object-position: center bottom; }
+
+/* Research publications are controlled by the upper-right chevron button. */
+.research-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
+.research-header h2 { margin-bottom: 0; flex: 1; }
+.expand-btn { display: none; }
+.js .expand-btn { display: grid; place-items: center; flex-shrink: 0; width: 44px; height: 44px; padding: 0; border: 2px solid #5cb3cc; border-radius: 50%; color: #4a90a4; background: rgb(91 179 204 / 10%); }
+.expand-btn i { display: none; }
+.expand-btn::after { content: ''; position: relative; top: -2px; width: 8px; height: 8px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg); transition: transform 200ms ease; }
+.expand-btn:hover { color: white; background: #5cb3cc; }
+.expanded .expand-btn::after { top: 2px; transform: rotate(225deg); }
+.research-tags, .project-meta { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.tag, .project-status, .project-budget, .project-funding, .project-duration { padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.85rem; font-weight: 500; }
+.tag { color: white; background: var(--gradient); }
+.research-publications { grid-column: 1 / -1; min-width: 0; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+.research-publications h3 { margin-bottom: 1.5rem; padding-bottom: 0.5rem; border-bottom: 2px solid #5cb3cc; font-size: 1.4rem; }
+.publication-content > p { color: var(--muted); font-size: 0.9rem; }
+.publication-list { display: flex; flex-direction: column; gap: 1rem; }
+.publication-item { padding: 1.5rem; border-left: 4px solid #5cb3cc; border-radius: 8px; background: var(--background); overflow-wrap: anywhere; }
+.publication-item h4 { margin-bottom: 0.5rem; font-size: 1.1rem; }
+.publication-authors { margin-bottom: 0.3rem; font-size: 0.9rem; font-style: italic; }
+.publication-venue { margin-bottom: 0.8rem; color: #4a90a4; font-size: 0.9rem; font-weight: 500; }
+.publication-link { display: inline-flex; align-items: center; min-height: 44px; gap: 0.5rem; font-size: 0.9rem; font-weight: 500; }
+.project-status.active { color: #1c6040; background: #e5f4eb; }
+.project-budget { color: var(--accent); background: var(--accent-soft); font-weight: 600; }
+.project-status.planning, .project-status.upcoming { color: #805000; background: #fff2d8; }
+.project-status.completed { color: white; background: #667eea; }
+.project-funding { color: var(--text); background: #e2e8f0; }
+.project-duration { color: var(--ink); border: 1px solid var(--border); }
+.funding-note { margin-top: 1rem; color: var(--muted); font-size: 0.8rem; }
+.site-footer { padding: 2rem 1.25rem; border-top: 1px solid var(--border); color: var(--muted); text-align: center; font-size: 0.85rem; }
+.site-footer p { margin-bottom: 0.4rem; }
+.noscript-notice { max-width: 70rem; margin: 1rem auto; padding: 1rem; background: var(--accent-soft); border-radius: 8px; }
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .news-item, .member-card { transition: box-shadow 200ms ease, transform 200ms ease; }
+    .news-item:hover, a.member-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgb(0 0 0 / 15%); }
+}
+
+@media (max-width: 64rem) {
+    .nav-logo { gap: 0.6rem; }
+    .monash-logo-img { width: 80px; height: 40px; }
+    .marrs-logo-img { width: 120px; height: 45px; }
+    .nav-logo h2 { font-size: 1.25rem; }
+    .nav-menu { gap: 0.25rem; }
+    .nav-link { padding-inline: 0.5rem; font-size: 0.9rem; }
+    .lab-intro { gap: 2rem; }
+    .lab-image-carousel { height: 300px; }
+    .news-item-full, .research-item, .project-item { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: 1.5rem; padding: 1.5rem; }
+    .leader-profile { gap: 2rem; }
+    .contact-links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 48rem) {
+    .container, .nav-container { width: calc(100% - 32px); }
+    .nav-container { flex-wrap: wrap; padding-block: 0.5rem; }
+    .nav-menu { width: 100%; justify-content: center; flex-wrap: wrap; }
+    .js .nav-container { flex-wrap: nowrap; }
+    .js .hamburger { display: flex; }
+    .js .nav-menu { position: absolute; top: 100%; left: 0; width: 100%; display: flex; align-items: stretch; flex-direction: column; flex-wrap: nowrap; gap: 0.25rem; padding: 0.75rem 1rem 1rem; visibility: hidden; opacity: 0; pointer-events: none; background: var(--gradient); box-shadow: 0 10px 20px rgb(0 0 0 / 15%); max-height: calc(100dvh - var(--nav-height)); overflow-y: auto; }
+    .js .nav-menu.active { visibility: visible; opacity: 1; pointer-events: auto; }
+    .js .nav-link { justify-content: center; font-size: 1rem; }
+    .monash-logo-img { width: 55px; height: 35px; }
+    .marrs-logo-img { width: 90px; height: 40px; }
+    .nav-logo h2 { font-size: 1.1rem; }
+    .page h1 { font-size: 2rem; }
+    .lab-intro { grid-template-columns: minmax(0, 1fr); }
+    .lab-text h1 { text-align: center; }
+    .lab-text p { font-size: 1rem; }
+    .members-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .news-grid { grid-template-columns: minmax(0, 1fr); }
+    .news-item .news-image, .news-item > img { height: 220px; }
+    .news-item-full, .research-item, .project-item, .leader-profile { grid-template-columns: minmax(0, 1fr); }
+    .news-item-full .news-image { height: 220px; }
+    .research-image, .project-image { height: 200px; }
+    .leader-info h2 { font-size: 1.8rem; }
+    .publication-item { padding: 1.2rem; }
+    .carousel-btn.prev { left: 10px; }
+    .carousel-btn.next { right: 10px; }
+    .js .carousel-btn { width: 44px; height: 44px; font-size: 16px; }
+}
+
+@media (max-width: 30rem) {
+    .container, .nav-container { width: calc(100% - 24px); }
+    .nav-container { gap: 0.5rem; }
+    .nav-logo { gap: 0.375rem; }
+    .monash-logo-img { width: 48px; height: 30px; }
+    .marrs-logo-img { width: 80px; height: 36px; }
+    .nav-logo h2 { font-size: 1rem; }
+    .page { padding-block: 2rem; }
+    .page h1 { font-size: 1.8rem; }
+    .section-title, .section-header h2 { font-size: 1.8rem; }
+    .members-grid { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+    .member-card { max-width: 400px; width: 100%; margin-inline: auto; }
+    .news-item-full, .research-item, .project-item, .leader-profile, .contact-section { padding: 1.5rem; }
+    .lab-image-carousel { height: 250px; }
+    .news-item .news-image, .news-item-full .news-image { height: 200px; }
+    .research-image, .project-image { height: 180px; }
+    .leader-image { height: 400px; }
+    .contact-links { grid-template-columns: minmax(0, 1fr); }
+    .news-content h2, .research-content h2, .project-content h2 { font-size: 1.3rem; }
+    .section-header { align-items: flex-start; flex-direction: column; }
+    .publication-item { padding: 1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+}
